@@ -1,10 +1,4 @@
 class GameController < ApplicationController
-  def collection
-    
-  end
-
-  def opponents
-  end
 
   def requestbattle
   end
