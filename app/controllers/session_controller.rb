@@ -3,15 +3,14 @@ class SessionController < ApplicationController
   end
 
   def create
-    binding.pry
     new_user = User.new
     new_user.username = params['username']
     new_user.email = params['email']
     new_user.password = params['password']
     new_user.logged_in = true
     new_user.save
-    session[:user_id] = user.id
-    binding.pry
+    session[:user_id] = new_user.id
+    redirect_to '/collection'
   end
 
   def login
