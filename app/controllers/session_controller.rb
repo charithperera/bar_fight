@@ -20,7 +20,8 @@ class SessionController < ApplicationController
       redirect_to '/collection'
     else
       @errors = new_user.errors.messages
-      render '/signup'
+      
+      render :signup
 
     end
 
