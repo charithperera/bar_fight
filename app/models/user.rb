@@ -6,7 +6,14 @@ class User < ApplicationRecord
   has_one :stat
 
 
-  validates :username, presence: true
-  validates :email, presence: true
-  validates_uniqueness_of :email
+  # validates :username, presence: true
+  # validates :email, presence: true
+  # validates_uniqueness_of :email
+
+
+  validates :username, :presence => {:message => "Username is required"}
+  validates :email, :presence => {:message => "Email is required"}
+  validates :email, :uniqueness => {:message => "Email is already in use"}
+
+
 end

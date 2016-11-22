@@ -1,5 +1,13 @@
 <div class="container">
-
+  <% if @errors %>
+       <div class="alert alert-danger">
+         <ul>
+           <% @errors.each_value do | error | %>
+             <li><%= error[0] %></li>
+           <% end %>
+         </ul>
+       </div>
+  <% end %>
   <div class="form-signup">
     <h3>Create an account</h3>
     <%= form_tag '/signup', method: "post" do%>

@@ -22,9 +22,8 @@ class SessionController < ApplicationController
       new_user.stat = new_stat
       redirect_to '/collection'
     else
-      # @errors = new_user.errors.messages
+      @errors = new_user.errors.messages
       render :signup
-
     end
 
   end
