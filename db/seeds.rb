@@ -14,9 +14,36 @@ earth = [2360, 2730, 1960, 2260, 1970, 970, 2790, 2060, 2200, 3570, 610, 1230, 4
 wind = [2530, 2900, 4890, 1550, 2640, 4560, 4220, 4130, 1540, 3650, 4290, 2920, 2830, 4700, 1210, 1870, 1120, 60, 4260, 2070, 3870, 1880, 4650, 2470, 1080]
 fire = [320, 4960, 3790, 2290, 440, 2690, 2880, 2290, 3670, 2770, 3990, 3320, 1800, 460, 2780, 2980, 2110, 3360, 3930, 4480, 2000, 340, 1020, 3450, 710]
 specials = ["Hot Chocolate", "Nosiness", "Gadgets", "Sleepless", "Parrots", "Wisdom", "Mr Music", "Sasquatch Fancier", "Wordsmith", "Calorie King", "Tree Whisperer", "Beer Connoisseur", "Normal Man", "Enthusiastic", "Magician", "Artist", "Batman", "Nice Hair Nice House", "Poker Face", "Smiley", "Mr Suave", "Delinquent", "Patience", "Cakepudding", "B.O.S.S"]
+images = ["avatars/leon.png",
+          "avatars/james.png",
+          "avatars/nick.png",
+          "avatars/dean.png",
+          "avatars/melissa.png",
+          "avatars/ka.png",
+          "avatars/tim.png",
+          "avatars/ej.png",
+          "avatars/catherine.png",
+          "avatars/charith.png",
+          "avatars/micah.png",
+          "avatars/paulw.png",
+          "avatars/paulm.png",
+          "avatars/kerrie.png",
+          "avatars/chloe.png",
+          "avatars/duyen.png",
+          "avatars/ari.png",
+          "avatars/pedro.png",
+          "avatars/sean.png",
+          "avatars/jason.png",
+          "avatars/bruno.png",
+          "avatars/harry.png",
+          "avatars/kasun.png",
+          "avatars/dt.png",
+          "avatars/matt.png",
+        ]
 
-if Card.count == 0
-  names.each_with_index do |name, index|
-    Card.create({ name:name, earth:earth[index], wind:wind[index], fire:fire[index], special:specials[index]})
-  end
+
+
+Card.destroy_all
+names.each_with_index do |name, index|
+  Card.create({ name:name, earth:earth[index], wind:wind[index], fire:fire[index], special:specials[index], image_url: images[index]})
 end
