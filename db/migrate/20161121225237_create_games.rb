@@ -1,12 +1,11 @@
 class CreateGames < ActiveRecord::Migration[5.0]
   def change
     create_table :games do |t|
-      t.references :user, foreign_key: true
-      t.references :cards, foreign_key: true
       t.integer :challenger_id
       t.integer :challenger_card1
       t.integer :challenger_card2
       t.integer :challenger_card3
+      t.integer :opponent_id
       t.integer :opponent_card1
       t.integer :opponent_card2
       t.integer :opponent_card3

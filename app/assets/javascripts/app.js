@@ -25,7 +25,21 @@ $(document).ready(function() {
 
   $(".opponent-list").on("click", "li", function(e) {
     $.ajax({
-      url:
+      url: '/requestbattle',
+      method: 'post',
+      data: {
+        opponentId: $(this).attr("data-user-id")
+      }
     })
-  })
+  }).done(standby)
+
+  function standby(response) {
+    //display "Waiting for P2 to accept battle"
+
+    //opponent has 15 seconds to accept battle
+    //if no response, hide overlay
+    //if response, "START GAME " overlay and action begins
+
+  }
+
 });
