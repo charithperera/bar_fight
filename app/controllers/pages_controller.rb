@@ -2,7 +2,11 @@ class PagesController < ApplicationController
 
   def main
     @user_cards = current_user.cards
-    render json: user_cards
+    @user = current_user
+    @opponents = User.where(logged_in: true, in_game: false)
+
   end
+
+
 
 end

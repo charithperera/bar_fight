@@ -10,10 +10,12 @@
 
 <div class="container">
 
-  <h1>My Collection</h1>
-  <!-- display cards -->
+  <h1>My Dashboard</h1>
+  <h2><%= @user.username %></h2>
+  <h3>Wins : <%= @user.stat.wins %></h3>
+  <h3>Losses : <%= @user.stat.losses%></h3>
   <% @user_cards.each do |card| %>
-    <div class="ui-card" data-id="<%= ui-card %>">
+    <div class="ui-card" data-id="<%= card.id %>">
 
       <header class="content">
         <span class="avatar-details">
@@ -23,7 +25,7 @@
       </header>
 
       <div class="avatar-image">
-        <img src="<%= card.image_url %>" alt="" width="20%">
+        <%=image_tag card.image_url %>
       </div>
 
       <div class="content">
@@ -39,13 +41,21 @@
   <% end %>
 
 </div>
-  <!-- see my wins and losses
-  and card count
-   -->
+
 </div>
 
 <div class="container">
   <h1>New Game</h1>
+  <h2>Online Opponents</h2>
+  <button id="opponent-btn">View Available Opponents</button>
+
+    <ul class="opponent-list">
+      <% @opponents.each do |opponent| %>
+      <% end %>
+    </ul>
+
+
+
   <!-- display opponents -->
   <!-- select opponent
   button to challenge opponent -->
