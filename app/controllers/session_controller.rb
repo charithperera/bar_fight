@@ -3,15 +3,25 @@ class SessionController < ApplicationController
   end
 
   def create
-    binding.pry
     new_user = User.new
+
     new_user.username = params['username']
     new_user.email = params['email']
     new_user.password = params['password']
-    new_user.logged_in = true
-    new_user.save
-    session[:user_id] = user.id
-    binding.pry
+
+    if new_user.username.valid? && new_user.email.valid?
+
+      new_user.logged_in = true
+      new_user.save
+      session[:user_id] = new_user.id
+      redirect_to '/collection'
+
+    else
+      # @errors = new_user.errors.messages
+      render '/signup'
+
+    end
+
   end
 
   def login
