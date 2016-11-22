@@ -10,23 +10,57 @@
 
 <div class="container">
 
-  <h1>My Collection</h1>
-
-  <!-- display cards -->
+  <h1>My Dashboard</h1>
+  <h2><%= @user.username %></h2>
+  <h3>Wins : <%= @user.stat.wins %></h3>
+  <h3>Losses : <%= @user.stat.losses%></h3>
   <% @user_cards.each do |card| %>
+    <div class="ui-card" data-id="<%= card.id %>">
 
-    <div class="card-container" da>
+      <header class="content">
+        <span class="avatar-details">
+          <h2><%= card.name %></h2>
+          <h3><%= card.special %></h3>
+        </span>
+      </header>
+
+      <div class="avatar-image">
+        <%=image_tag card.image_url %>
+      </div>
+
+      <div class="content">
+        <h4>Earth</h4>
+        <span class="pull-right"><%= card.earth %></span>
+        <h4>Wind</h4>
+        <span class="pull-right"><%= card.wind %></span>
+        <h4>Fire</h4>
+        <span class="pull-right"><%= card.fire %></span>
+      </div>
 
     </div>
-  <!-- see my wins and losses
-  and card count
-   -->
+  <% end %>
+
+</div>
+
 </div>
 
 <div class="container">
   <h1>New Game</h1>
+<<<<<<< HEAD
+  <h2>Online Opponents</h2>
+  <button id="opponent-btn">View Available Opponents</button>
+
+    <ul class="opponent-list">
+      <% @opponents.each do |opponent| %>
+      <% end %>
+    </ul>
+
+
+
+=======
 
   
+>>>>>>> 549d164641c3b2de2bc6757b2ac8c4ae6e0de175
   <!-- display opponents -->
   <!-- select opponent
   button to challenge opponent -->

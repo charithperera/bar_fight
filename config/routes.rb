@@ -3,12 +3,16 @@ Rails.application.routes.draw do
   get "/", to: "pages#index"
 
   get "/main", to: "pages#main"
-  
+  get "api/getopponents", to: "api/game#opponents"
+  post "api/requestbattle", to: "api/game#requestbattle"
+
+
+  get "/api/collection", to: "api/game#collection"
+
+
+
   get "/signup", to: "session#signup"
   get "/login", to: "session#index"
-  get "/collection", to: "game#collection"
-  get "/opponents", to: "game#opponents"
-  get "/requestbattle", to: "game#requestbattle"
   get "/beginbattle", to: "game#beginbattle"
 
 
