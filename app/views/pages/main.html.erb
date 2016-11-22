@@ -56,7 +56,7 @@
   <!-- display opponents -->
   <!-- select opponent
   button to challenge opponent -->
-  <button id="btn-find-match">Find Match</button>
+
 </div>
 
 
@@ -66,32 +66,12 @@
 </div>
 
 <div class="container" id="game">
-  <h2>The Game</h2>
-  <div class="my-cards"></div>
-  <div class="chosen-card"></div>
 </div>
 
-<script id="card-template" type="text/x-handlebars-template">
-  <div class="ui-card" data-id={{id}}>
-    <header class="content">
-      <span class="avatar-details">
-        <h2>{{ name }}</h2>
-        <h3>{{ special }}</h3>
-      </span>
-    </header>
+<div class="container" id="waiting">
 
-    <div class="avatar-image">
-      <img src="/images/{{image_url}}"
-    </div>
+  <h2>WAITING</h2>
+</div>
 
-    <div class="content">
-      <h4>Earth</h4>
-      <span class="pull-right" class="earth-power">{{earth}}</span>
-      <h4>Wind</h4>
-      <span class="pull-right" class="wind-power">{{wind}}</span>
-      <h4>Fire</h4>
-      <span class="pull-right" class="fire-power">{{fire}}</span>
-    </div>
 
-  </div>
-</script>
+</div>

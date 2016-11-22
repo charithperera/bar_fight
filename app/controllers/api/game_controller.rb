@@ -46,3 +46,4 @@ class Api::GameController < ApplicationController
     render json: response
   end
 end
+# //need to delete rows in Match table
