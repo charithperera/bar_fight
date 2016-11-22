@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20161121225237) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cards_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_cards_users_on_card_id", using: :btree
+    t.index ["user_id"], name: "index_cards_users_on_user_id", using: :btree
+  end
+
   create_table "games", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "cards_id"
@@ -55,15 +64,6 @@ ActiveRecord::Schema.define(version: 20161121225237) do
     t.index ["user_id"], name: "index_stats_on_user_id", using: :btree
   end
 
-  create_table "user_cards", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "card_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["card_id"], name: "index_user_cards_on_card_id", using: :btree
-    t.index ["user_id"], name: "index_user_cards_on_user_id", using: :btree
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.text     "password_digest"
@@ -74,9 +74,9 @@ ActiveRecord::Schema.define(version: 20161121225237) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "cards_users", "cards"
+  add_foreign_key "cards_users", "users"
   add_foreign_key "games", "cards", column: "cards_id"
   add_foreign_key "games", "users"
   add_foreign_key "stats", "users"
-  add_foreign_key "user_cards", "cards"
-  add_foreign_key "user_cards", "users"
 end
