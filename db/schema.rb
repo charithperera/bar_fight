@@ -28,14 +28,20 @@ ActiveRecord::Schema.define(version: 20161121225237) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "card1"
-    t.integer  "card2"
-    t.integer  "card3"
-    t.boolean  "game1_win"
-    t.boolean  "game2_win"
-    t.boolean  "game3_win"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "cards_id"
+    t.integer  "challenger_id"
+    t.integer  "challenger_card1"
+    t.integer  "challenger_card2"
+    t.integer  "challenger_card3"
+    t.integer  "opponent_card1"
+    t.integer  "opponent_card2"
+    t.integer  "opponent_card3"
+    t.integer  "game1_win_by"
+    t.integer  "game2_win_by"
+    t.integer  "game3_win_by"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["cards_id"], name: "index_games_on_cards_id", using: :btree
     t.index ["user_id"], name: "index_games_on_user_id", using: :btree
   end
 
@@ -68,6 +74,7 @@ ActiveRecord::Schema.define(version: 20161121225237) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "games", "cards", column: "cards_id"
   add_foreign_key "games", "users"
   add_foreign_key "stats", "users"
   add_foreign_key "user_cards", "cards"
