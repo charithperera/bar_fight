@@ -41,7 +41,7 @@ images = ["avatars/leon.png",
           "avatars/matt.png",
         ]
 
-
+  
 
 Card.destroy_all
 names.each_with_index do |name, index|
