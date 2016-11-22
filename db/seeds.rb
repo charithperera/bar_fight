@@ -6,8 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
-user = User.create({ username: "Test User", email:"test@test.com", logged_in:true, in_game:false, password:"test"})
+
+# user1 = User.create({ username: "Test User", email:"test@test.com", logged_in:true, in_game:false, password:"test"})
+# stat1 = Stat.create({ wins: 0, losses: 0, card_count: 6 })
+# user1.stat = stat1
+# user2 = User.create({ username: "apple", email:"apple@test.com", logged_in:true, in_game:false, password:"test"})
+# stat2 = Stat.create({ wins: 0, losses: 0, card_count: 6 })
+# user3 = User.create({ username: "bana", email:"banana@test.com", logged_in:true, in_game:false, password:"test"})
+# stat3 = Stat.create({ wins: 0, losses: 0, card_count: 6 })
+
+
 
 names = [ "Leon", "James", "Nick", "Dean", "Melissa", "Ka", "Tim", "EJ", "Catherine", "Charith", "Micah", "Paul W", "Paul M", "Kerrie", "Chloe", "Duyen", "Ari", "Pedro", "Sean", "Jason", "Bruno", "Harry", "Kasun", "DT", "Matt"]
 earth = [2360, 2730, 1960, 2260, 1970, 970, 2790, 2060, 2200, 3570, 610, 1230, 4280, 3980, 3720, 2440, 10, 3770, 5000, 4280, 1670, 2660, 590, 4130, 3810]
@@ -46,4 +54,23 @@ images = ["avatars/leon.png",
 Card.destroy_all
 names.each_with_index do |name, index|
   Card.create({ name:name, earth:earth[index], wind:wind[index], fire:fire[index], special:specials[index], image_url: images[index]})
+end
+
+
+User.destroy_all
+3.times do |count|
+  new_user = User.new
+
+  new_user.username = 'user' + count.to_s
+  new_user.email = 'email' + count.to_s + '@gmail.com'
+  new_user.password = 'test'
+
+  new_user.logged_in = true
+  new_user.in_game = false
+  new_user.save
+  6.times do
+    new_user.cards << Card.all.sample
+  end
+  new_stat = Stat.create({ wins: 0, losses:0 , card_count: new_user.cards.count })
+  new_user.stat = new_stat
 end

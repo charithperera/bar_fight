@@ -23,23 +23,26 @@ $(document).ready(function() {
 
   }
 
-  $(".opponent-list").on("click", "li", function(e) {
+  // $(".opponent-list").on("click", "li", function(e) {
+  //   $.ajax({
+  //     url: '/requestbattle',
+  //     method: 'post',
+  //     data: {
+  //       opponentId: $(this).attr("data-user-id")
+  //     }
+  //   })
+  // }).done(standby)
+
+
+
+  $("#btn-find-match").click(function(e) {
     $.ajax({
-      url: '/requestbattle',
-      method: 'post',
-      data: {
-        opponentId: $(this).attr("data-user-id")
-      }
+      url: "/setready",
+      method: "post"
     })
-  }).done(standby)
+    .done(function(){
 
-  function standby(response) {
-    //display "Waiting for P2 to accept battle"
-
-    //opponent has 15 seconds to accept battle
-    //if no response, hide overlay
-    //if response, "START GAME " overlay and action begins
-
-  }
+    })
+  })
 
 });

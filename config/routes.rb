@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "/", to: "pages#index"
+  root to: "pages#index"
 
   get "/main", to: "pages#main"
   get "api/getopponents", to: "api/game#opponents"
   post "/requestbattle", to: "game#requestbattle"
+  post "/setready", to: "game#setready"
 
 
   get "/api/collection", to: "api/game#collection"

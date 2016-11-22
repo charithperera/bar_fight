@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121225237) do
+ActiveRecord::Schema.define(version: 20161122063112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 20161121225237) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "matches", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_matches_on_user_id", using: :btree
+  end
+
   create_table "stats", force: :cascade do |t|
     t.integer  "wins"
     t.integer  "losses"
@@ -73,5 +80,6 @@ ActiveRecord::Schema.define(version: 20161121225237) do
 
   add_foreign_key "cards_users", "cards"
   add_foreign_key "cards_users", "users"
+  add_foreign_key "matches", "users"
   add_foreign_key "stats", "users"
 end

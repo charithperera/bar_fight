@@ -8,6 +8,13 @@ class GameController < ApplicationController
     binding.pry
   end
 
+  def setready
+    binding.pry
+    if Match.where(user_id: current_user.id).empty?
+      Match.create(user_id: current_user.id)
+    end
+  end
+
   def acceptbattle
     # update user to say in game
   end
