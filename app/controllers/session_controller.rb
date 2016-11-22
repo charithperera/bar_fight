@@ -1,5 +1,6 @@
 class SessionController < ApplicationController
   def new
+
   end
 
   def create
@@ -12,6 +13,7 @@ class SessionController < ApplicationController
     if new_user.username.valid? && new_user.email.valid?
 
       new_user.logged_in = true
+      new_user.in_game = false
       new_user.save
       session[:user_id] = new_user.id
       redirect_to '/collection'
