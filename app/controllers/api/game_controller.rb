@@ -1,7 +1,7 @@
 class Api::GamesController < ApplicationController
 
   def collection
-    user_cards = current_user.cards
+    @user_cards = current_user.cards
     render json: user_cards
   end
 
