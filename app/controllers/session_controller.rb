@@ -30,6 +30,7 @@ class SessionController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      binding.pry
       redirect_to '/collection'
     else
       redirect_to '/login'

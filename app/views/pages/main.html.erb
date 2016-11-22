@@ -11,13 +11,34 @@
 <div class="container">
 
   <h1>My Collection</h1>
-
   <!-- display cards -->
   <% @user_cards.each do |card| %>
+    <div class="ui-card" data-id="<%= ui-card %>">
 
-    <div class="card-container" da>
+      <header class="content">
+        <span class="avatar-details">
+          <h2><%= card.name %></h2>
+          <h3><%= card.special %></h3>
+        </span>
+      </header>
+
+      <div class="avatar-image">
+        <img src="<%= card.image_url %>" alt="" width="20%">
+      </div>
+
+      <div class="content">
+        <h4>Earth</h4>
+        <span class="pull-right"><%= card.earth %></span>
+        <h4>Wind</h4>
+        <span class="pull-right"><%= card.wind %></span>
+        <h4>Fire</h4>
+        <span class="pull-right"><%= card.fire %></span>
+      </div>
 
     </div>
+  <% end %>
+
+</div>
   <!-- see my wins and losses
   and card count
    -->
