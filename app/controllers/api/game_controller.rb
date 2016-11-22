@@ -12,8 +12,7 @@ class Api::GameController < ApplicationController
   end
 
   def requestbattle
-
-
+    binding.pry
   end
 
   def acceptbattle

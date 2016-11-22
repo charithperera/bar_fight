@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-user = User.create({ username: "Test User", email:"test@test.com", logged_in:false, in_game:false, password:"test"})
+user = User.create({ username: "Test User", email:"test@test.com", logged_in:true, in_game:false, password:"test"})
 
 names = [ "Leon", "James", "Nick", "Dean", "Melissa", "Ka", "Tim", "EJ", "Catherine", "Charith", "Micah", "Paul W", "Paul M", "Kerrie", "Chloe", "Duyen", "Ari", "Pedro", "Sean", "Jason", "Bruno", "Harry", "Kasun", "DT", "Matt"]
 earth = [2360, 2730, 1960, 2260, 1970, 970, 2790, 2060, 2200, 3570, 610, 1230, 4280, 3980, 3720, 2440, 10, 3770, 5000, 4280, 1670, 2660, 590, 4130, 3810]
@@ -23,7 +23,7 @@ images = ["avatars/leon.png",
           "avatars/tim.png",
           "avatars/ej.png",
           "avatars/catherine.png",
-          "avatars/charith.png",
+          "avatars/chaz.png",
           "avatars/micah.png",
           "avatars/paulw.png",
           "avatars/paulm.png",
@@ -41,7 +41,7 @@ images = ["avatars/leon.png",
           "avatars/matt.png",
         ]
 
-  
+
 
 Card.destroy_all
 names.each_with_index do |name, index|
