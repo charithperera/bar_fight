@@ -10,9 +10,10 @@
 }
 
 .ui-card {
-  margin: 5%;
-  width: 20%;
+  margin: 1%;
+  width: 25%;
   display: inline-block;
+  border: 1px solid black;
 }
 
 .ui-card img {
