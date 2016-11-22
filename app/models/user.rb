@@ -4,7 +4,14 @@ class User < ApplicationRecord
   # has_many :cards, through: :user_cards
   has_and_belongs_to_many :cards
 
-  validates :username, presence: true
-  validates :email, presence: true
-  validates_uniqueness_of :email
+  # validates :username, presence: true
+  # validates :email, presence: true
+  # validates_uniqueness_of :email
+
+
+  validates :username, :presence => {:message => "Username is required"}
+  validates :email, :presence => {:message => "Email is required"}
+  validates :email, :uniqueness => {:message => "Email is already in use"}
+
+
 end
