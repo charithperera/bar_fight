@@ -75,9 +75,11 @@ class Api::GameController < ApplicationController
   end
 
   def calculatewinner
-    response = {}
-    game = params[:game]
     binding.pry
+    response = {
+      :youwon => false
+    }
+    game = params[:game]
     challenger_powername = game[:challenger_powername]
     challenger_powerval = game[:challenger_powerval]
     opponent_powername = game[:opponent_powername]
@@ -85,21 +87,51 @@ class Api::GameController < ApplicationController
     if challenger_powerval > opponent_powerval
       challenger = User.find(game[:challenger_id])
       opponent = User.find(game[:opponent_id])
-      challenger.stat.wins += 1
-      opponent.stat.losses += 1
+
+      challenger_stat = challenger.stat
+      challenger_stat.wins += 1
+      challenger_stat.save
+
+      opponent_stat = opponent.stat
+      opponent_stat.losses += 1
+      opponent_stat.save
+
       response[:username] = challenger.username
       response[:powername] = challenger_powername
       response[:powerval] = challenger_powerval
+
+      if challenger.id == current_user.id
+        response[:youwon] = true
+      else
+        lose_card = Card.find(game[:opponent_cardid])
+        challenger.cards << lose_card
+        opponent.cards.delete(lose_card)
+      end
+
     else
       opponent = User.find(game[:opponent_id])
       challenger = User.find(game[:challenger_id])
-      opponent.stat.wins += 1
-      challenger.stat.losses += 1
+
+      challenger_stat = challenger.stat
+      challenger_stat.losses += 1
+      challenger_stat.save
+
+      opponent_stat = opponent.stat
+      opponent_stat.wins += 1
+      opponent_stat.save
+
       response[:username] = opponent.username
       response[:powername] = opponent_powername
       response[:powerval] = opponent_powerval
+      if opponent.id == current_user.id
+        response[:youwon] = true
+      else
+        lose_card = Card.find(game[:challenger_cardid])
+        opponent.cards << lose_card
+        challenger.cards.delete(lose_card)
+      end
     end
-
+    binding.pry
     render json: response
   end
 

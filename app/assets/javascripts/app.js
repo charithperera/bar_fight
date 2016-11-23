@@ -80,7 +80,7 @@ $(document).ready(function() {
     $(".opponent-card").append(template(oppBattleCard));
 
     //after 5 seconds, get win
-    // displayWin(battleData);
+    displayWin(battleData);
   }
 
   function findMatch() {
@@ -108,7 +108,14 @@ $(document).ready(function() {
     for (var i = 0; i < cards.length; i++) {
       $(".my-cards").append(template(cards[i]))
     }
+  }
 
+  function renderWin(winData) {
+    if (winData.youwon) {
+      $(".outcome").text("YOU WON!");
+    } else {
+      $(".outcome").text("YOU LOSE!");
+    }
   }
 
   function displayWin(battleData) {
@@ -117,9 +124,7 @@ $(document).ready(function() {
       method: "post",
       data: battleData
     })
-    .done(function(res) {
-      console.log(res);
-    })
+    .done(renderWin)
   }
 
 
