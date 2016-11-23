@@ -1,4 +1,5 @@
 class GameController < ApplicationController
+  include GameConcerns
 
   def requestbattle
     new_game = Game.new
@@ -6,8 +7,6 @@ class GameController < ApplicationController
     new_game.challenger_id = current_user.id
     new_game.save
   end
-
-
 
   def beginbattle
     render :battle_screen

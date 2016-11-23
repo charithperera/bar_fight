@@ -1,4 +1,5 @@
 class Api::GameController < ApplicationController
+  include GameConcerns
 
   def collection
     user_cards = current_user.cards
@@ -75,7 +76,6 @@ class Api::GameController < ApplicationController
   end
 
   def calculatewinner
-    binding.pry
     response = {
       :youwon => false
     }
@@ -131,7 +131,6 @@ class Api::GameController < ApplicationController
         challenger.cards.delete(lose_card)
       end
     end
-    binding.pry
     render json: response
   end
 

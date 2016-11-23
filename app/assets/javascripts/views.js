@@ -1,8 +1,6 @@
 
-
-
-
 $(document).ready(function(){
+
 
 var $newGameBtn = $('#newgame');
 var $dashBoardBtn = $('#dashboard');
@@ -21,12 +19,6 @@ $newGameBtn.on('click', function(e){
 $dashBoardBtn.on('click', function(e){
   $menu.toggle();
   $dashBoardScreen.toggle();
-})
-
-$exitGameBtn.on('click', function(e){
-  console.log(e.target);
-  // logout and return to home
-
 })
 
 $returnBtn1.on('click', function(e){

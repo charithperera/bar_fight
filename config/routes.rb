@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post "/api/findmatch", to: "api/game#findmatch"
   post "/api/choosecard", to: "api/game#choosecard"
   post "/api/calculatewinner", to: "api/game#calculatewinner"
+  post "/clearcurrentgame", to: "game#clearcurrentgame"
 
 
 
