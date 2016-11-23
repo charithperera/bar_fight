@@ -45,12 +45,12 @@ button {
   font-family: arial !important;
   text-transform: lowercase !important;
   font-size: 1.5em !important;
-  background-color: Transparent;
-   background-repeat:no-repeat;
-   border: none;
-   cursor:pointer;
-   overflow: hidden;
-   outline:none;
+  background-color: transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
 }
 .home {
 
@@ -68,6 +68,7 @@ body {
   background-image: url(http://www.pacifymind.net/wp-content/uploads/11108g-boxing-ring-wallpaper.jpg);
   background-size: cover;
   color: white;
+  background-attachment: fixed;
 }
 .form-signin {
   color: white;
@@ -108,8 +109,14 @@ body {
 .newgame {
   display: none;
 }
-.playgame {
+.play-card-screen {
   display: none;
+}
+.battle-screen {
+  display: none;
+}
+.winner-screen {
+  display: none
 }
 
 h1 {

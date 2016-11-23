@@ -4,8 +4,9 @@
 
   <button class="mainpage-btn" id="dashboard" >my dashboard</button>
   <button class="mainpage-btn" id="newgame" >new game</button>
-  <button class="mainpage-btn" id="login" >exit game</button>
-
+  <%= form_tag '/logout', method: 'post' do %>
+    <button class="mainpage-btn" id="logout" >exit game</button>
+  <% end %>
 
 
 </div>
@@ -55,20 +56,9 @@
 
 </div>
 
-<div class="container playgame">
-  <!-- new game page displays 3 cards to play with -->
-  <h1>New Game</h1>
-
-
-
-<%#<div class="container">
-  <h1>Exit Game</h1>
-
-</div>
-%>
 
 <%- #this displays the three cards sampled -%>
-<div class="container" id="game">
+<div class="container play-card-screen" id="game">
   <h2 class="game-header">The Game</h2>
   <div class="my-cards"></div>
 <%- #handlebars appends 3 sampled cards from your collection using script below -%>
@@ -77,7 +67,7 @@
 
 
 <%-#this is the battle screen that displays the chosen cards after you select your card to play -%>
-<div class="container" id="battle-screen">
+<div class="container battle-screen" id="battle-screen">
   <div class="your-card">
 <%- #handlebars appends your chosen card using script below -%>
   </div>
@@ -86,7 +76,7 @@
   </div>
 </div>
 
-<div class="container" id="winner">
+<div class="container winner-screen" id="winner">
   <h1 class="outcome"></h1>
 
 </div>
