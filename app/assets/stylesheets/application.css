@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+/*add require stuff here */
+
+.containerLight {
+  color:#000;
+  background-color:#e9eefe;
+}
+.containerDark {
+  color:#fff;
+  background-color:#021141;
+}
+.action {
+  color:#fff;
+  background-color:#021141;
+}
+.containerDark2 {
+  color:#fff;
+  background-color:#032381
+}
+.mainText {
+  color:#032381;
+}
+.containerBorder {
+  border-color:#032381;
+}
+
+button {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  font-family: arial !important;
+  text-transform: lowercase !important;
+  font-size: 1.5em !important;
+}
+
+/*
+.w3-hover-theme:hover {color:#fff !important; background-color:#032381 !important}
+.w3-hover-text-theme {color:#032381 !important}
+.w3-hover-border-theme:hover {border-color:#032381 !important}*/

@@ -19,3 +19,10 @@
 .ui-card img {
   width: 100%;
 }
+
+button {
+  padding-left: 0;
+  padding-right: 0;
+  font-family: arial;
+  text-transform: lowercase;
+}
