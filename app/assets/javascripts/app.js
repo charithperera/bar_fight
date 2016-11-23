@@ -23,6 +23,8 @@ $(document).ready(function() {
     })
     .done(function(res){
       if (res.ready) {
+        $('.play-card-screen').toggle();
+        $('.battle-screen').toggle();
         renderBattleScreen(res)
       }
       else {
@@ -90,6 +92,8 @@ $(document).ready(function() {
     })
     .done(function(resp){
       if (resp.game) {
+        $('.newgame').toggle();
+        $('.play-card-screen').toggle();
         renderGame(resp);
       }
       else {
