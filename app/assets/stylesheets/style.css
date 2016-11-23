@@ -10,13 +10,16 @@
 }
 
 .ui-card {
-  margin: 1%;
-  width: 25%;
-  display: inline-block;
-  border: 1px solid black;
+  /*margin: 1%;*/
+  /*width: 25%;*/
+  /*display: inline-block;*/
+  /*border: 1px solid black;*/
 }
 
 .ui-card img {
+  width: 100%;
+}
+.quality {
   width: 100%;
 }
 
