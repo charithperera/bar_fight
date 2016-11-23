@@ -20,7 +20,7 @@ class SessionController < ApplicationController
       end
       new_stat = Stat.create({ wins: 0, losses:0 , card_count: new_user.cards.count })
       new_user.stat = new_stat
-      redirect_to '/collection'
+      redirect_to '/main'
     else
       @errors = new_user.errors.messages
       render :signup
@@ -32,7 +32,7 @@ class SessionController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/collection'
+      redirect_to '/main'
     else
       redirect_to '/login'
     end

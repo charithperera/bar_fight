@@ -1,15 +1,16 @@
-<h1>Main</h1>
 
-<div class="container">
+<div class="container menu">
  <!-- menu -->
-   <h1>My Collection</h1>
-   <h1>New Game</h1>
-   <h1>Exit Game</h1>
+
+  <a class="mainpage-btn" id="dashboard" href="#">my dashboard</a>
+  <a class="mainpage-btn" id="newgame" href="#">new game</a>
+  <a class="mainpage-btn" id="login" href="#">exit game</a>
 
 </div>
 
-<div class="container">
 
+<div class="container dashboard">
+<!-- dashboard, cards and stats -->
   <h1>My Dashboard</h1>
   <h2><%= @user.username %></h2>
   <h3>Wins : <%= @user.stat.wins %></h3>
@@ -42,9 +43,13 @@
 
 </div>
 
+<div class="newgame">
+  <!-- contains spinner while we wait for a match -->
+
 </div>
 
-<div class="container">
+<div class="container playgame">
+  <!-- new game pagedisplays 3 cards to play with -->
   <h1>New Game</h1>
   <h2>Online Opponents</h2>
   <button id="opponent-btn">View Available Opponents</button>
