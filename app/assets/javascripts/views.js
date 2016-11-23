@@ -4,14 +4,29 @@
 
 $(document).ready(function(){
 
-var $newgame = $('#newgame');
-var $dashboard = $('#dashboard');
-var $exitgame = $('#exitgame');
+var $newGameBtn = $('#newgame');
+var $dashBoardBtn = $('#dashboard');
+var $exitGameBtn = $('#exitgame');
+var $menu = $('.menu');
+var $dashBoardScreen = $(".dashboard");
+var $newGameScreen = $(".newgame");
 
-$newgame.on('click', function(e){
-  $(e.target).closest.toggle();
+
+$newGameBtn.on('click', function(e){
+  $menu.toggle();
+  $newGameScreen.toggle();
 })
 
+$dashBoardBtn.on('click', function(e){
+  $menu.toggle();
+  $dashBoardScreen.toggle();
+})
 
+$exitGameBtn.on('click', function(e){
+  console.log(e.target);
+  // logout and return to home
+
+
+})
 
 })

@@ -2,9 +2,11 @@
 <div class="container menu">
  <!-- menu -->
 
-  <a class="mainpage-btn" id="dashboard" href="#">my dashboard</a>
-  <a class="mainpage-btn" id="newgame" href="#">new game</a>
-  <a class="mainpage-btn" id="login" href="#">exit game</a>
+  <button class="mainpage-btn" id="dashboard" >my dashboard</button>
+  <button class="mainpage-btn" id="newgame" >new game</button>
+  <button class="mainpage-btn" id="login" >exit game</button>
+
+
 
 </div>
 
@@ -44,26 +46,26 @@
 
     </div>
   <% end %>
-
+<!-- insert button(s) to navigate away -->
 </div>
 
 <div class="newgame">
   <!-- contains spinner while we wait for a match -->
+  <h2>waiting for match ....</h2>
 
 </div>
 
 <div class="container playgame">
-  <!-- new game pagedisplays 3 cards to play with -->
+  <!-- new game page displays 3 cards to play with -->
   <h1>New Game</h1>
-  <h2>Find Match</h2>
-  <button id="btn-find-match">Find Match</button>
-</div>
 
 
-<div class="container">
+
+<%#<div class="container">
   <h1>Exit Game</h1>
 
 </div>
+%>
 
 <%- #this displays the three cards sampled -%>
 <div class="container" id="game">
