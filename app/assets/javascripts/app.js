@@ -86,7 +86,7 @@ $(document).ready(function() {
     //after 5 seconds, get win
     setTimeout(function(){
       displayWin(battleData);
-    },5000);
+    },10000);
   }
 
   function findMatch() {
@@ -137,15 +137,15 @@ $(document).ready(function() {
     .done(renderWin)
   }
 
-  function clearGames() {
+  function clearAll() {
     $.ajax({
         type: 'POST',
-        url: '/clearcurrentgame',
+        url: '/clearall',
         async:false
     });
   }
 
-  $(window).unload(clearGames);
+  $(window).unload(clearAll);
 
 
   // $('#opponent-btn').click(function(event) {
