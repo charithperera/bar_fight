@@ -7,6 +7,9 @@ class GameController < ApplicationController
     new_game.save
   end
 
+def clearcurrentgame
+
+end
 
 
   def beginbattle
