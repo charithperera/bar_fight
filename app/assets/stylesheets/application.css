@@ -13,3 +13,119 @@
  *= require_tree .
  *= require_self
  */
+
+/*add require stuff here */
+
+.containerLight {
+  color:#000;
+  background-color:#e9eefe;
+}
+.containerDark {
+  color:#fff;
+  background-color:#021141;
+}
+.action {
+  color:#fff;
+  background-color:#021141;
+}
+.containerDark2 {
+  color:#fff;
+  background-color:#032381
+}
+.mainText {
+  color:#032381;
+}
+.containerBorder {
+  border-color:#032381;
+}
+
+button {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  font-family: arial !important;
+  text-transform: lowercase !important;
+  font-size: 1.5em !important;
+  background-color: transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+.home {
+
+  height:100vh;
+  text-align: center;
+
+}
+.menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+body {
+  background-image: url(boxing-ring.jpg);
+  background-size: cover;
+  color: white;
+  background-attachment: fixed;
+}
+.form-signin {
+  color: white;
+  font-size: 1.5em;
+}
+.form-signup {
+  color: white;
+  font-size: 1.5em;
+}
+
+.homepage-buttons {
+  display: flex;
+  justify-content: center;
+}
+.homepage-btn {
+  color: white;
+  font-size: 2em;
+  padding: 2em;
+}
+.homepage-btn:hover {
+  color: teal;
+}
+.homepage-btn:active {
+  color: pink;
+}
+.mainpage-btn {
+  color: white;
+  font-size: 2em;
+  padding: 2em;
+}
+.mainpage-btn:hover {
+  color: teal;
+}
+
+.dashboard {
+  display: none;
+}
+.newgame {
+  display: none;
+}
+.play-card-screen {
+  display: none;
+}
+.battle-screen {
+  display: none;
+}
+.winner-screen {
+  display: none
+}
+
+h1 {
+  padding: 2em;
+  color: white;
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+}
+/*
+.w3-hover-theme:hover {color:#fff !important; background-color:#032381 !important}
+.w3-hover-text-theme {color:#032381 !important}
+.w3-hover-border-theme:hover {border-color:#032381 !important}*/

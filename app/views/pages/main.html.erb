@@ -1,15 +1,19 @@
-<h1>Main</h1>
 
-<div class="container">
+<div class="container menu">
  <!-- menu -->
-   <h1>My Collection</h1>
-   <h1>New Game</h1>
-   <h1>Exit Game</h1>
+
+  <button class="mainpage-btn" id="dashboard" >my dashboard</button>
+  <button class="mainpage-btn" id="newgame" >new game</button>
+  <%= form_tag '/logout', method: 'post' do %>
+    <button class="mainpage-btn" id="logout" >exit game</button>
+  <% end %>
+
 
 </div>
 
-<div class="container">
 
+<div class="container dashboard">
+<!-- dashboard, cards and stats -->
   <h1>My Dashboard</h1>
   <%- #display of your stats -%>
 
@@ -33,36 +37,36 @@
       </div>
 
       <div class="content">
-        <h4>Earth</h4>
-        <span class="pull-right"><%= card.earth %></span>
-        <h4>Wind</h4>
-        <span class="pull-right"><%= card.wind %></span>
-        <h4>Fire</h4>
-        <span class="pull-right"><%= card.fire %></span>
+        <div class="power earth">
+          <h4>Earth</h4>
+          <span class="pull-right"><%= card.earth %></span>
+        </div>
+        <div class="power wind">
+          <h4>Wind</h4>
+          <span class="pull-right"><%= card.wind %></span>
+        </div>
+        <div class="power fire">
+          <h4>Fire</h4>
+          <span class="pull-right"><%= card.fire %></span>
+        </div>
       </div>
 
     </div>
   <% end %>
+<!-- insert button(s) to navigate away -->
+</div>
+
+<div class="newgame">
+  <!-- contains spinner while we wait for a match -->
+  <h2>waiting for match ....</h2>
 
 </div>
 
-</div>
-
-<div class="container">
-  <h1>New Game</h1>
-  <h2>Find Match</h2>
-  <button id="btn-find-match">Find Match</button>
-</div>
-
-
-<div class="container">
-  <h1>Exit Game</h1>
-
-</div>
 
 <%- #this displays the three cards sampled -%>
-<div class="container" id="game">
+<div class="container play-card-screen" id="game">
   <h2 class="game-header">The Game</h2>
+  <h4>Select a category from a card below to battle</h4>
   <div class="my-cards"></div>
 <%- #handlebars appends 3 sampled cards from your collection using script below -%>
   <div class="chosen-card"></div>
@@ -70,7 +74,8 @@
 
 
 <%-#this is the battle screen that displays the chosen cards after you select your card to play -%>
-<div class="container" id="battle-screen">
+<div class="container battle-screen" id="battle-screen">
+  <h2>Battle Screen</h2>
   <div class="your-card">
 <%- #handlebars appends your chosen card using script below -%>
   </div>
@@ -79,7 +84,7 @@
   </div>
 </div>
 
-<div class="container" id="winner">
+<div class="container winner-screen" id="winner">
   <h1 class="outcome"></h1>
 
 </div>
@@ -95,21 +100,21 @@
     </header>
 
     <div class="avatar-image">
-      <img src="/images/{{image_url}}"
+      <img src="/images/{{image_url}}">
     </div>
 
     <div class="content">
       <div class="power earth">
         <h4>Earth</h4>
-        <span>{{earth}}</span>
+        <span class="right">{{earth}}</span>
       </div>
       <div class="power wind">
         <h4>Wind</h4>
-        <span>{{wind}}</span>
+        <span class="right">{{wind}}</span>
       </div>
       <div class="power fire">
         <h4>Fire</h4>
-        <span>{{fire}}</span>
+        <span class="right">{{fire}}</span>
       </div>
     </div>
 
@@ -118,11 +123,13 @@
 
 <%-# this is the template for the chosen card that you want to play -%>
 <script id="battle-card-template" type="text/x-handlebars-template">
-  <h2 class="card-name">{{name}}</h2>
-  <h3 class="special">{{special}}</h3>
-  <div class="avatar-image">
-    <img src="/images/{{image_url}}">
+  <div class="ui-card">
+    <h2 class="card-name">{{name}}</h2>
+    <h3 class="special">{{special}}</h3>
+    <div class="avatar-image">
+      <img src="/images/{{image_url}}">
+    </div>
+    <h3 class="power-name">{{powername}}</h3>
+    <h4 class="power-val">{{powerval}}</h4>
   </div>
-  <h3 class="power-name">{{powername}}</h3>
-  <h4 class="power-val">{{powerval}}</h4>
 </script>

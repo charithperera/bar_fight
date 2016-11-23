@@ -1,11 +1,13 @@
 $(document).ready(function() {
 
-  $("#btn-find-match").click(function(e) {
+  $("#newgame").click(function(e) {
     findMatch();
   })
 
 
   $(".my-cards").on("click", ".power", function(e) {
+    $(e.target).closest(".ui-card").css("transform", "scale(1.1)");
+    $(e.target).closest(".power").css("border", "3px solid gold");
     data = {
       powerName: $(e.target).closest("div").find("h4").text(),
       powerVal: $(e.target).closest("div").find("span").text(),
@@ -23,6 +25,8 @@ $(document).ready(function() {
     })
     .done(function(res){
       if (res.ready) {
+        $('.play-card-screen').toggle();
+        $('.battle-screen').toggle();
         renderBattleScreen(res)
       }
       else {
@@ -80,7 +84,9 @@ $(document).ready(function() {
     $(".opponent-card").append(template(oppBattleCard));
 
     //after 5 seconds, get win
-    displayWin(battleData);
+    setTimeout(function(){
+      displayWin(battleData);
+    },5000);
   }
 
   function findMatch() {
@@ -90,6 +96,8 @@ $(document).ready(function() {
     })
     .done(function(resp){
       if (resp.game) {
+        $('.newgame').toggle();
+        $('.play-card-screen').toggle();
         renderGame(resp);
       }
       else {
@@ -119,6 +127,8 @@ $(document).ready(function() {
   }
 
   function displayWin(battleData) {
+    $('.battle-screen').toggle();
+    $('.winner-screen').toggle();
     $.ajax({
       url: "/api/calculatewinner",
       method: "post",
