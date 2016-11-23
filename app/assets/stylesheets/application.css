@@ -46,7 +46,34 @@ button {
   text-transform: lowercase !important;
   font-size: 1.5em !important;
 }
+.home {
+  background-image: url(http://www.pacifymind.net/wp-content/uploads/11108g-boxing-ring-wallpaper.jpg);
+  background-size: cover;
+  height:100vh;
+  text-align: center;
 
+}
+.homepage-buttons {
+  display: flex;
+  justify-content: center;
+}
+.homepage-btn {
+  color: white;
+
+  padding: 2em;
+}
+.homepage-btn:hover {
+  color: teal;
+}
+.homepage-btn:active {
+  color: pink;
+}
+
+h1 {
+  padding: 2em;
+  color: white;
+  margin: 0;
+}
 /*
 .w3-hover-theme:hover {color:#fff !important; background-color:#032381 !important}
 .w3-hover-text-theme {color:#032381 !important}
