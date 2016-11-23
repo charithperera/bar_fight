@@ -52,12 +52,12 @@ button {
   overflow: hidden;
   outline: none;
 }
-.home {
 
+.home {
   height:100vh;
   text-align: center;
-
 }
+
 .menu {
   display: flex;
   justify-content: space-around;
@@ -71,11 +71,9 @@ body {
   background-attachment: fixed;
 }
 .form-signin {
-  color: white;
   font-size: 1.5em;
 }
 .form-signup {
-  color: white;
   font-size: 1.5em;
 }
 
@@ -102,13 +100,29 @@ body {
 .mainpage-btn:hover {
   color: teal;
 }
-
+#returnFromGame {
+  position: absolute;
+  bottom: 0%;
+}
+#returnFromDashboard {
+  position: absolute;
+  bottom: 0%;
+}
 .dashboard {
   display: none;
 }
 .newgame {
   display: none;
+  text-align: center;
+  position: relative;
+  height: 100vh;
+  padding-top: 3em;
 }
+.preloader-wrapper {
+position: relative;
+top: 50%;
+}
+
 .play-card-screen {
   display: none;
 }

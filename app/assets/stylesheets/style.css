@@ -8,7 +8,14 @@
   max-width: 400px;
   margin: 0 auto;
 }
+.topbit {
+  font-size: 2em;
+  font-family: 'Press Start 2P', cursive;
+}
 
+.wins {
+  font-size: 1.5em;
+}
 .ui-card {
   margin: 1%;
   width: 25%;
@@ -25,6 +32,9 @@
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
+.quality {
+  width: 100%;
+}
 
 .ui-card h2 {
   font-size: 2em;
@@ -32,7 +42,7 @@
 }
 
 .ui-card h3 {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .ui-card h4 {
@@ -49,17 +59,12 @@
 }
 
 .power .right {
-  float: right;
   vertical-align: middle;
 }
 
 .my-cards .power:hover {
   border: 3px gold solid;
 }
-
-/*.my-cards .ui-card:hover {
-  transform: scale(1.1);
-}*/
 
 .battle-screen {
 }

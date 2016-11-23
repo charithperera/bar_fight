@@ -4,23 +4,27 @@
 
   <button class="mainpage-btn" id="dashboard" >my dashboard</button>
   <button class="mainpage-btn" id="newgame" >new game</button>
+
   <%= form_tag '/logout', method: 'post' do %>
     <button class="mainpage-btn" id="logout" >exit game</button>
   <% end %>
-
 
 </div>
 
 
 <div class="container dashboard">
-<!-- dashboard, cards and stats -->
-  <h1>My Dashboard</h1>
+<% #!-- dashboard, cards and stats -%>
   <%- #display of your stats -%>
-
-  <h2><%= @user.username %></h2>
-  <h3>Wins : <%= @user.stat.wins %></h3>
-  <h3>Losses : <%= @user.stat.losses%></h3>
-  <%- #display of your collection of cards -%>
+  <div class="row topbit">
+    <div class="col s7" >My Dashboard</div>
+    <div class="col s5"><%= @user.username %></div>
+  </div>
+  <div class="row wins">
+    <div class="col s6">Wins : <%= @user.stat.wins %></div>
+    <div class="col s6">Losses : <%= @user.stat.losses%></div>
+    <% #insert button(s) to navigate away -%>
+    <button class="mainpage-btn" id="returnFromDashboard" >return</button>
+  </div>
 
   <% @user_cards.each do |card| %>
     <div class="ui-card" data-id="<%= card.id %>">
@@ -39,33 +43,46 @@
       <div class="content">
         <div class="power earth">
           <h4>Earth</h4>
-          <span class="pull-right"><%= card.earth %></span>
+          <span class="right"><%= card.earth %></span>
         </div>
         <div class="power wind">
           <h4>Wind</h4>
-          <span class="pull-right"><%= card.wind %></span>
+          <span class="right"><%= card.wind %></span>
         </div>
         <div class="power fire">
           <h4>Fire</h4>
-          <span class="pull-right"><%= card.fire %></span>
+          <span class="right"><%= card.fire %></span>
         </div>
       </div>
 
     </div>
   <% end %>
-<!-- insert button(s) to navigate away -->
+
 </div>
 
 <div class="newgame">
   <!-- contains spinner while we wait for a match -->
-  <h2>waiting for match ....</h2>
+  <div class="topbit" >waiting for match ....</div>
+
+  <div class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+  <button class="mainpage-btn" id="returnFromGame" >return</button>
 
 </div>
 
 
 <%- #this displays the three cards sampled -%>
 <div class="container play-card-screen" id="game">
-  <h2 class="game-header">The Game</h2>
+  <h2 class="game-header topbit">The Game</h2>
   <h4>Select a category from a card below to battle</h4>
   <div class="my-cards"></div>
 <%- #handlebars appends 3 sampled cards from your collection using script below -%>
