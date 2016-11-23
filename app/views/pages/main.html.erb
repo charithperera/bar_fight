@@ -15,47 +15,15 @@
 <div class="container dashboard">
 <% #!-- dashboard, cards and stats -%>
   <%- #display of your stats -%>
-  <div class="row">
-    <div class="col s7"><h3>my dashboard</h3></div>
-    <div class="col s5"><h3><%= @user.username %></h3></div>
+  <div class="row topbit">
+    <div class="col s7" >My Dashboard</div>
+    <div class="col s5"><%= @user.username %></div>
   </div>
-  <div class="row">
-    <div class="col s6"><h4>Wins : <%= @user.stat.wins %></h4></div>
-    <div class="col s6"><h4>Losses : <%= @user.stat.losses%></h4></div>
+  <div class="row wins">
+    <div class="col s6">Wins : <%= @user.stat.wins %></div>
+    <div class="col s6">Losses : <%= @user.stat.losses%></div>
     <% #insert button(s) to navigate away -%>
     <button class="mainpage-btn" id="returnFromDashboard" >return</button>
-  </div>
-
-
-  <%- #display of your collection of cards -%>
-  <div class="row">
-    <% @user_cards.each do |card| %>
-    <div class="col s12 m4">
-      <div class="ui-card" data-id="<%= card.id %>">
-        <div class="card-content white-text">
-          <header class="content">
-            <span class="avatar-details">
-              <h3><%= card.name %></h3>
-              <h4><%= card.special %></h4>
-            </span>
-          </header>
-          <div class="avatar-image">
-            <%=image_tag card.image_url %>
-          </div>
-            <div class="content">
-              <div class="quality">
-                <h4 class="col s6 m2">Earth</h4>
-                <span class="col s6 m2"><%= card.earth %></span>
-              </div>
-              <h4>Wind</h4>
-              <span class="right"><%= card.wind %></span>
-              <h4>Fire</h4>
-              <span class="pull-right"><%= card.fire %></span>
-            </div>
-        </div>
-      </div>
-    </div>
-    <% end %>
   </div>
 
   <% @user_cards.each do |card| %>
@@ -63,8 +31,8 @@
 
       <header class="content">
         <span class="avatar-details">
-          <h3><%= card.name %></h3>
-          <h4><%= card.special %></h4>
+          <h2><%= card.name %></h2>
+          <h3><%= card.special %></h3>
         </span>
       </header>
 
@@ -75,15 +43,15 @@
       <div class="content">
         <div class="power earth">
           <h4>Earth</h4>
-          <span class="pull-right"><%= card.earth %></span>
+          <span class="right"><%= card.earth %></span>
         </div>
         <div class="power wind">
           <h4>Wind</h4>
-          <span class="pull-right"><%= card.wind %></span>
+          <span class="right"><%= card.wind %></span>
         </div>
         <div class="power fire">
           <h4>Fire</h4>
-          <span class="pull-right"><%= card.fire %></span>
+          <span class="right"><%= card.fire %></span>
         </div>
       </div>
 
@@ -94,7 +62,7 @@
 
 <div class="newgame">
   <!-- contains spinner while we wait for a match -->
-  <h2>waiting for match ....</h2>
+  <div class="topbit" >waiting for match ....</div>
 
   <div class="preloader-wrapper big active">
     <div class="spinner-layer spinner-blue-only">
@@ -114,7 +82,7 @@
 
 <%- #this displays the three cards sampled -%>
 <div class="container play-card-screen" id="game">
-  <h2 class="game-header">The Game</h2>
+  <h2 class="game-header topbit">The Game</h2>
   <h4>Select a category from a card below to battle</h4>
   <div class="my-cards"></div>
 <%- #handlebars appends 3 sampled cards from your collection using script below -%>
