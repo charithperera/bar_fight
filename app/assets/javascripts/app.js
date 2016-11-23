@@ -127,13 +127,15 @@ $(document).ready(function() {
     .done(renderWin)
   }
 
-  $(window).unload(function(){
-      $.ajax({
-          type: 'POST',
-          url: '/clearcurrentgame',
-          async:false
-      });
-  });
+  function clearGames() {
+    $.ajax({
+        type: 'POST',
+        url: '/clearcurrentgame',
+        async:false
+    });
+  }
+
+  $(window).unload(clearGames);
 
 
   // $('#opponent-btn').click(function(event) {
