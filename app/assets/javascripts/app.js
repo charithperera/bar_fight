@@ -127,6 +127,16 @@ $(document).ready(function() {
     .done(renderWin)
   }
 
+  function clearGames() {
+    $.ajax({
+        type: 'POST',
+        url: '/clearcurrentgame',
+        async:false
+    });
+  }
+
+  $(window).unload(clearGames);
+
 
   // $('#opponent-btn').click(function(event) {
   //   //destroy children of list
