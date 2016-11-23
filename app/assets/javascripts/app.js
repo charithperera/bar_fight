@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $("#btn-find-match").click(function(e) {
+  $("#newgame").click(function(e) {
     findMatch();
   })
 
