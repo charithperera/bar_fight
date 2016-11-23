@@ -7,13 +7,7 @@ class GameController < ApplicationController
     new_game.save
   end
 
-  def setready
 
-  end
-
-  def acceptbattle
-    # update user to say in game
-  end
 
   def beginbattle
     render :battle_screen
