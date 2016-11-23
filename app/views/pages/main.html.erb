@@ -11,9 +11,13 @@
 <div class="container">
 
   <h1>My Dashboard</h1>
+  <%- #display of your stats -%>
+
   <h2><%= @user.username %></h2>
   <h3>Wins : <%= @user.stat.wins %></h3>
   <h3>Losses : <%= @user.stat.losses%></h3>
+  <%- #display of your collection of cards -%>
+
   <% @user_cards.each do |card| %>
     <div class="ui-card" data-id="<%= card.id %>">
 
@@ -46,16 +50,7 @@
 
 <div class="container">
   <h1>New Game</h1>
-  <h2>Online Opponents</h2>
-  <button id="opponent-btn">View Available Opponents</button>
-
-    <ul class="opponent-list">
-
-    </ul>
-
-  <!-- display opponents -->
-  <!-- select opponent
-  button to challenge opponent -->
+  <h2>Find Match</h2>
   <button id="btn-find-match">Find Match</button>
 </div>
 
@@ -65,12 +60,30 @@
 
 </div>
 
+<%- #this displays the three cards sampled -%>
 <div class="container" id="game">
-  <h2>The Game</h2>
+  <h2 class="game-header">The Game</h2>
   <div class="my-cards"></div>
+<%- #handlebars appends 3 sampled cards from your collection using script below -%>
   <div class="chosen-card"></div>
 </div>
 
+
+<%-#this is the battle screen that displays the chosen cards after you select your card to play -%>
+<div class="container" id="battle-screen">
+  <div class="your-card">
+<%- #handlebars appends your chosen card using script below -%>
+  </div>
+  <div class="opponent-card">
+<%- #handlebars appends your opponent's card using script below -%>
+  </div>
+</div>
+
+<div class="container" id="winner">
+
+</div>
+
+<%-# this is the template for each of the 3 cards sampled from your collection -%>
 <script id="card-template" type="text/x-handlebars-template">
   <div class="ui-card" data-id={{id}}>
     <header class="content">
@@ -85,13 +98,30 @@
     </div>
 
     <div class="content">
-      <h4>Earth</h4>
-      <span class="pull-right" class="earth-power">{{earth}}</span>
-      <h4>Wind</h4>
-      <span class="pull-right" class="wind-power">{{wind}}</span>
-      <h4>Fire</h4>
-      <span class="pull-right" class="fire-power">{{fire}}</span>
+      <div class="power earth">
+        <h4>Earth</h4>
+        <span>{{earth}}</span>
+      </div>
+      <div class="power wind">
+        <h4>Wind</h4>
+        <span>{{wind}}</span>
+      </div>
+      <div class="power fire">
+        <h4>Fire</h4>
+        <span>{{fire}}</span>
+      </div>
     </div>
 
   </div>
+</script>
+
+<%-# this is the template for the chosen card that you want to play -%>
+<script id="battle-card-template" type="text/x-handlebars-template">
+  <h2 class="card-name">{{name}}</h2>
+  <h3 class="special">{{special}}</h3>
+  <div class="avatar-image">
+    <img src="/images/{{image_url}}">
+  </div>
+  <h3 class="power-name">{{powername}}</h3>
+  <h4 class="power-val">{{powerval}}</h4>
 </script>

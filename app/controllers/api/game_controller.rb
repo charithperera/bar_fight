@@ -11,16 +11,44 @@ class Api::GameController < ApplicationController
     render json: opponents
   end
 
-  def requestbattle
-    binding.pry
+  def choosecard
+    response = {
+      :ready => false
+    }
+
+    current_game = Game.find(params['gameId'])
+
+    if current_user.id == current_game.challenger_id
+      current_game.challenger_cardid = params["cardId"]
+      current_game.challenger_powername = params["powerName"]
+      current_game.challenger_powerval = params["powerVal"]
+
+      unless current_game.opponent_cardid.nil?
+        response[:ready] = true
+        response[:challengerCard] = Card.find(current_game.challenger_cardid)
+        response[:opponentCard] = Card.find(current_game.opponent_cardid)
+      end
+    else
+      current_game.opponent_cardid = params["cardId"]
+      current_game.opponent_powername = params["powerName"]
+      current_game.opponent_powerval = params["powerVal"]
+
+      unless current_game.challenger_cardid.nil?
+        response[:ready] = true
+        response[:challengerCard] = Card.find(current_game.challenger_cardid)
+        response[:opponentCard] = Card.find(current_game.opponent_cardid)
+      end
+    end
+
+    current_game.save
+    response[:game] = current_game
+    response[:myId] = current_user.id
+    response[:username] = current_user.username
+
+    render json: response
+
   end
 
-  def acceptbattle
-  end
-
-  def beginbattle
-    render :battle_screen
-  end
 
   def findmatch
     response = {}
@@ -45,4 +73,35 @@ class Api::GameController < ApplicationController
     end
     render json: response
   end
+
+  def calculatewinner
+    response = {}
+    game = params[:game]
+    binding.pry
+    challenger_powername = game[:challenger_powername]
+    challenger_powerval = game[:challenger_powerval]
+    opponent_powername = game[:opponent_powername]
+    opponent_powerval = game[:opponent_powerval]
+    if challenger_powerval > opponent_powerval
+      challenger = User.find(game[:challenger_id])
+      opponent = User.find(game[:opponent_id])
+      challenger.stat.wins += 1
+      opponent.stat.losses += 1
+      response[:username] = challenger.username
+      response[:powername] = challenger_powername
+      response[:powerval] = challenger_powerval
+    else
+      opponent = User.find(game[:opponent_id])
+      challenger = User.find(game[:challenger_id])
+      opponent.stat.wins += 1
+      challenger.stat.losses += 1
+      response[:username] = opponent.username
+      response[:powername] = opponent_powername
+      response[:powerval] = opponent_powerval
+    end
+
+    render json: response
+  end
+
+
 end

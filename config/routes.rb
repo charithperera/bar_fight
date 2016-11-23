@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get "api/getopponents", to: "api/game#opponents"
   post "/requestbattle", to: "game#requestbattle"
   post "/api/findmatch", to: "api/game#findmatch"
+  post "/api/choosecard", to: "api/game#choosecard"
+  post "/api/calculatewinner", to: "api/game#calculatewinner"
+
 
 
   get "/api/collection", to: "api/game#collection"
