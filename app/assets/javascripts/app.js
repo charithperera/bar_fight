@@ -6,6 +6,8 @@ $(document).ready(function() {
 
 
   $(".my-cards").on("click", ".power", function(e) {
+    $(e.target).closest(".ui-card").css("transform", "scale(1.1)");
+    $(e.target).closest(".power").css("border", "3px solid gold");
     data = {
       powerName: $(e.target).closest("div").find("h4").text(),
       powerVal: $(e.target).closest("div").find("span").text(),
@@ -82,7 +84,9 @@ $(document).ready(function() {
     $(".opponent-card").append(template(oppBattleCard));
 
     //after 5 seconds, get win
-    displayWin(battleData);
+    setTimeout(function(){
+      displayWin(battleData);
+    },5000);
   }
 
   function findMatch() {
@@ -123,6 +127,8 @@ $(document).ready(function() {
   }
 
   function displayWin(battleData) {
+    $('.battle-screen').toggle();
+    $('.winner-screen').toggle();
     $.ajax({
       url: "/api/calculatewinner",
       method: "post",
