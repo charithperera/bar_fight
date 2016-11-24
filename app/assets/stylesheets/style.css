@@ -1,3 +1,4 @@
+
 .form-signin {
   max-width: 400px;
   margin: 0 auto;
@@ -8,19 +9,14 @@
   margin: 0 auto;
 }
 .topbit {
-  font-size: 3em;
-  padding-bottom: 1em;
-  padding-top: 1em;
+  font-size: 2em;
+  font-family: 'Press Start 2P', cursive;
 }
-.bottombit {
-  /*display: flex;
-  justify-content: center;
-  align-items: center;*/
 
-}
 .wins {
   font-size: 1.5em;
 }
+
 .ui-card {
   margin: 1%;
   width: 25%;
@@ -95,7 +91,7 @@
 }
 
 .your-card {
-  display: inline-block;
+  box-sizing: border-box;
 }
 
 .battle-screen h2 {
@@ -135,7 +131,7 @@ button {
   padding-right: 0 !important;
   font-family: arial !important;
   text-transform: lowercase !important;
-  /*font-size: 1.5em !important;*/
+  font-size: 1.5em !important;
   background-color: transparent;
   background-repeat:no-repeat;
   border: none;
@@ -143,9 +139,8 @@ button {
   overflow: hidden;
   outline: none;
   color: white !important;
-  /*display: flex;
+  display: flex;
   align-items: center;
-  justify-content: center;*/
 }
 button:hover {
   color: red !important;
@@ -174,7 +169,10 @@ body {
   background-attachment: fixed;
 }
 .form-signin {
-  /*font-size: 1.5em;*/
+  font-size: 1.5em;
+}
+.form-signup {
+  font-size: 1.5em;
 }
 
 .homepage-buttons {
@@ -195,22 +193,19 @@ body {
 .mainpage-btn {
   color: white;
   font-size: 2em;
-  /*padding: 2em;*/
+  padding: 2em;
 }
 .mainpage-btn:hover {
   color: red;
 }
-.dashPage-btn {
-
+#returnFromGame {
+  position: absolute;
+  bottom: 0%;
 }
-/*#returnFromGame {
+#returnFromDashboard {
   position: absolute;
   bottom: 0%;
-}*/
-/*#returnFromDashboard {
-  position: absolute;
-  bottom: 0%;
-}*/
+}
 .dashboard {
   display: none;
 }
@@ -240,6 +235,7 @@ h1 {
   padding: 2em;
   color: white;
   margin: 0;
+  font-family: 'Press Start 2P', cursive;
 }
 /* label color */
 .input-field label {
