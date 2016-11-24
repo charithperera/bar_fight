@@ -35,6 +35,7 @@ $(document).ready(function() {
     $menu.toggle();
     $dashBoardScreen.toggle();
     renderCollection();
+    $(".stats").empty();
     renderStats();
     playMusic();
   })
