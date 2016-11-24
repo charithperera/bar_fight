@@ -36,6 +36,7 @@ $(document).ready(function() {
     $dashBoardScreen.toggle();
     renderCollection();
     $(".stats").empty();
+    $(".my-cards").empty();
     renderStats();
     playMusic();
   })
