@@ -9,6 +9,12 @@ $(document).ready(function() {
   var $returnBtn1 = $("#returnFromDashboard");
   var $returnBtn2 = $("#returnFromGame");
 
+//adding sounds to button hover
+  $('button').hover(
+    function() {
+    $('.buttonhover').get(0).play();
+  })
+
 
   $newGameBtn.on('click', function(e){
     $menu.toggle();
@@ -43,6 +49,14 @@ $(document).ready(function() {
   $("#newgame").click(function(e) {
     findMatch();
   })
+
+//can't seem to get the below to work
+//was trying to add the button plop sound to when you hover over the POWERs on the cards dealt to you during battle
+  // $(".power").hover(plop);
+  //
+  // function plop() {
+  //   $('.buttonhover').get(0).play();
+  // }
 
   $(".my-battle-cards").on("click", ".power", selectPower);
 
