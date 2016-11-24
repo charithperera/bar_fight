@@ -6,7 +6,7 @@ $(document).ready(function() {
   var $exitGameBtn = $('#exitgame');
   var $menu = $('.menu');
   var $newGameScreen = $(".newgame");
-  var $returnBtn1 = $("#returnFromDashboard");
+  var $returnBtn1 = $("#backtohome");
   var $returnBtn2 = $("#returnFromGame");
 
 
@@ -44,18 +44,21 @@ $(document).ready(function() {
     findMatch();
   })
 
+  $(".my-battle-cards").on("click", ".power", selectPower);
 
-  $(".my-battle-cards").on("click", ".power", function(e) {
+  function selectPower(e) {
     $(e.target).closest(".ui-card").css("transform", "scale(1.1)");
     $(e.target).closest(".power").css("border", "3px solid red");
+    $(".my-battle-cards").off("click", ".power");
     data = {
       powerName: $(e.target).closest("div").find("h4").text(),
       powerVal: $(e.target).closest("div").find("span").text(),
       cardId: $(e.target).closest(".ui-card").attr("data-id"),
       gameId: $(e.target).closest("#game").find(".game-header").attr("data-game-id")
     }
-    chooseCard(data)
-  })
+    chooseCard(data);
+  }
+
 
   $(".finish").on("click", goToCollection);
 
@@ -212,6 +215,13 @@ $(document).ready(function() {
     $('.my-cards').empty();
     renderCollection();
     renderStats();
+    clearAll();
+    $(".my-battle-cards").on("click", ".power", selectPower);
+    $(".my-battle-cards").empty();
+    $(".your-card").empty();
+    $(".opponent-card").empty();
+
+
     $('.dashboard').toggle();
   }
 
