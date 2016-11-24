@@ -31,7 +31,7 @@ $(document).ready(function() {
       }
       else {
         setTimeout(function () {
-            chooseCard(data);
+          chooseCard(data);
         }, 5000);
       }
     })
