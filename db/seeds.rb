@@ -48,12 +48,38 @@ images = ["avatars/leon.png",
           "avatars/dt.png",
           "avatars/matt.png",
         ]
+sad_images = ["sadavatar/leon-lose.png",
+          "sadavatar/james-lose.png",
+          "sadavatar/nick-lose.png",
+          "sadavatar/dean-lose.png",
+          "sadavatar/melissa-lose.png",
+          "sadavatar/ka-lose.png",
+          "sadavatar/tim-lose.png",
+          "sadavatar/ej-lose.png",
+          "sadavatar/catherine-lose.png",
+          "sadavatar/chaz-lose.png",
+          "sadavatar/micah-lose.png",
+          "sadavatar/paulw-lose.png",
+          "sadavatar/paulm-lose.png",
+          "sadavatar/kerrie-lose.png",
+          "sadavatar/chloe-lose.png",
+          "sadavatar/duyen-lose.png",
+          "sadavatar/ari-lose.png",
+          "sadavatar/pedro-lose.png",
+          "sadavatar/sean-lose.png",
+          "sadavatar/jason-lose.png",
+          "sadavatar/bruno-lose.png",
+          "sadavatar/harry-lose.png",
+          "sadavatar/kasun-lose.png",
+          "sadavatar/dt-lose.png",
+          "sadavatar/matt-lose.png",
+        ]
 
 
 
 Card.destroy_all
 names.each_with_index do |name, index|
-  Card.create({ name:name, earth:earth[index], wind:wind[index], fire:fire[index], special:specials[index], image_url: images[index]})
+  Card.create({ name:name, earth:earth[index], wind:wind[index], fire:fire[index], special:specials[index], image_url: images[index], sad_image_url: sad_images[index]})
 end
 
 
