@@ -17,18 +17,18 @@
   <%- #display of your stats -%>
   <button type="button" name="button" id="backtohome"><<</button>
   <div class="row topbit">
-    <div class="col s6" >My Dashboard</div>
-    <div class="col s5"><%= @user.username %></div>
-    <div class="col s1"><button class="dashPage-btn" id="returnFromDashboard" ><i class="material-icons prefix">home</i></button></div>
+    <div class="col s6 center-align" >My Dashboard</div>
+    <div class="col s5 center-align"><%= @user.username %></div>
+    <div class="col s1 center-align"><button class="dashPage-btn" id="returnFromDashboard" ><i class="material-icons prefix">home</i></button></div>
   </div>
-  <div class="row wins">
+  <div class="row wins center-align">
 
     <div class="stats">
     </div>
 
   </div>
 
-  <div class="my-cards">
+  <div class="my-cards center-align">
     <% @user_cards.each do |card| %>
       <div class="ui-card" data-id="<%= card.id %>">
 
@@ -44,15 +44,15 @@
         </div>
 
         <div class="content">
-          <div class="power earth">
+          <div class="power earth left-align">
             <h4>Earth</h4>
             <span class="right"><%= card.earth %></span>
           </div>
-          <div class="power wind">
+          <div class="power wind left-align">
             <h4>Wind</h4>
             <span class="right"><%= card.wind %></span>
           </div>
-          <div class="power fire">
+          <div class="power fire left-align">
             <h4>Fire</h4>
             <span class="right"><%= card.fire %></span>
           </div>
