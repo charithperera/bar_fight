@@ -26,6 +26,7 @@
   background: white;
   color: black;
   border-radius: 20px;
+  box-shadow: 0 9px #999;
 }
 
 .ui-card img {
@@ -149,11 +150,18 @@ button {
 button:hover {
   color: red !important;
 }
+button:active {
+  background-color: transparent !important;
+}
 a {
-  color: red;
+  color: white;
+}
+a:hover {
+  color:red
 }
 i {
   padding-right: 1em;
+  padding-left: 1em;
 }
 .home {
   height:100vh;
@@ -171,6 +179,7 @@ body {
   background-size: cover;
   color: white;
   background-attachment: fixed;
+
 }
 .form-signin {
   font-size: 1.5em;
@@ -178,7 +187,12 @@ body {
 .form-signup {
   font-size: 1.5em;
 }
-
+.duck {
+  width: 60px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
 .homepage-buttons {
   display: flex;
   justify-content: center;
