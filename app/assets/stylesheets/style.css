@@ -152,6 +152,9 @@ body {
 .mainpage-btn:hover {
   color: red;
 }
+.dashPage-btn {
+  
+}
 /*#returnFromGame {
   position: absolute;
   bottom: 0%;
