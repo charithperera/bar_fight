@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   $(".my-battle-cards").on("click", ".power", function(e) {
     $(e.target).closest(".ui-card").css("transform", "scale(1.1)");
-    $(e.target).closest(".power").css("border", "3px solid gold");
+    $(e.target).closest(".power").css("border", "3px solid red");
     data = {
       powerName: $(e.target).closest("div").find("h4").text(),
       powerVal: $(e.target).closest("div").find("span").text(),
