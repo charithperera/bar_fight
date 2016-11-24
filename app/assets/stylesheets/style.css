@@ -52,7 +52,8 @@
   margin: 0;
 }
 
-.my-cards .power {
+.my-cards .power,
+.my-battle-cards .power {
   overflow: hidden;
   border: 3px white solid;
   cursor: pointer;
@@ -63,7 +64,7 @@
   vertical-align: middle;
 }
 
-.my-cards .power:hover {
+.my-battle-cards .power:hover {
   border: 3px gold solid;
 }
 
@@ -109,10 +110,173 @@
 
 .battle-screen h4 {
   font-size: 1.5em;
+}
+
+.opponent-card {
   display: inline-block;
   padding: 0 20px 0 20px;;
 }
 
 .winner-screen {
   text-align: center;
+}
+button {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  font-family: arial !important;
+  text-transform: lowercase !important;
+  font-size: 1.5em !important;
+  background-color: transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: white !important;
+  display: flex;
+  align-items: center;
+}
+button:hover {
+  color: red !important;
+}
+a {
+  color: red;
+}
+i {
+  padding-right: 1em;
+}
+.home {
+  height:100vh;
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+body {
+  background-image: url(boxing-ring.jpg);
+  background-size: cover;
+  color: white;
+  background-attachment: fixed;
+}
+.form-signin {
+  font-size: 1.5em;
+}
+.form-signup {
+  font-size: 1.5em;
+}
+
+.homepage-buttons {
+  display: flex;
+  justify-content: center;
+}
+.homepage-btn {
+  color: white;
+  font-size: 2em;
+  padding: 2em;
+}
+.homepage-btn:hover {
+  color: red;
+}
+.homepage-btn:active {
+  color: blue;
+}
+.mainpage-btn {
+  color: white;
+  font-size: 2em;
+  padding: 2em;
+}
+.mainpage-btn:hover {
+  color: red;
+}
+#returnFromGame {
+  position: absolute;
+  bottom: 0%;
+}
+#returnFromDashboard {
+  position: absolute;
+  bottom: 0%;
+}
+.dashboard {
+  display: none;
+}
+.newgame {
+  display: none;
+  text-align: center;
+  position: relative;
+  height: 100vh;
+  padding-top: 3em;
+}
+.preloader-wrapper {
+position: relative;
+top: 50%;
+}
+
+.play-card-screen {
+  display: none;
+}
+.battle-screen {
+  display: none;
+}
+.winner-screen {
+  display: none
+}
+
+h1 {
+  padding: 2em;
+  color: white;
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+}
+/* label color */
+.input-field label {
+  color: white;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: white;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 red;
+}
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 red;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: red;
+}
+/* label underline focus color */
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 red;
+}
+/* valid color */
+.input-field input[type=password].valid {
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 red;
+}
+/* invalid color */
+.input-field input[type=password].invalid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+/* label focus color */
+.input-field input[type=password]:focus + label {
+  color: white;
+
+.no-cards {
+  display: none;
 }

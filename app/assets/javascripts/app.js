@@ -5,7 +5,7 @@ $(document).ready(function() {
   })
 
 
-  $(".my-cards").on("click", ".power", function(e) {
+  $(".my-battle-cards").on("click", ".power", function(e) {
     $(e.target).closest(".ui-card").css("transform", "scale(1.1)");
     $(e.target).closest(".power").css("border", "3px solid gold");
     data = {
@@ -16,6 +16,8 @@ $(document).ready(function() {
     }
     chooseCard(data)
   })
+
+  $(".finish").on("click", goToCollection);
 
   function chooseCard(data){
     $.ajax({
@@ -114,16 +116,58 @@ $(document).ready(function() {
     var template = Handlebars.compile(source);
     $(".game-header").attr("data-game-id", gameData.game.id);
     for (var i = 0; i < cards.length; i++) {
+      $(".my-battle-cards").append(template(cards[i]))
+    }
+  }
+
+  function renderCollection(myCards) {
+    var cards = myCards
+    var source = $("#card-template").html();
+    var template = Handlebars.compile(source);
+    for (var i = 0; i < cards.length; i++) {
       $(".my-cards").append(template(cards[i]))
     }
+  }
+
+  function renderStats(statsData) {
+    var source = $("#stats-template").html();
+    var template = Handlebars.compile(source);
+    $(".stats").append(template(statsData));
   }
 
   function renderWin(winData) {
     if (winData.youwon) {
       $(".outcome").text("YOU WON!");
+      $(".card-outcome").text("You captured your opponent's card!");
     } else {
       $(".outcome").text("YOU LOSE!");
+      $(".card-outcome").text("You lost your card!");
+      if (winData.nocards) {
+        $(".no-cards").toggle();
+      }
+
     }
+  }
+
+
+  function goToCollection() {
+    $('.winner-screen').toggle();
+    $('.stats').empty();
+    $('.my-cards').empty();
+
+    $.ajax({
+      url: '/api/getcollection',
+      method: 'get'
+    })
+    .done(renderCollection)
+
+    $.ajax({
+      url: '/api/getstats',
+      method: 'get'
+    })
+    .done(renderStats)
+
+    $('.dashboard').toggle();
   }
 
   function displayWin(battleData) {
