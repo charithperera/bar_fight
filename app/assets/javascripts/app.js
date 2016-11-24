@@ -13,18 +13,22 @@ $(document).ready(function() {
   $newGameBtn.on('click', function(e){
     $menu.toggle();
     $newGameScreen.toggle();
-
+    playMusic();
   })
 
 
   $returnBtn1.on('click', function(e){
     $menu.toggle();
     $dashBoardScreen.toggle();
+    playMusic();
+
   })
 
   $returnBtn2.on('click', function(e){
     $menu.toggle();
     $newGameScreen.toggle();
+    playMusic();
+
   })
 
   $dashBoardBtn.on('click', function(e){
@@ -32,6 +36,7 @@ $(document).ready(function() {
     $dashBoardScreen.toggle();
     renderCollection();
     renderStats();
+    playMusic();
   })
 
 
@@ -184,10 +189,14 @@ $(document).ready(function() {
 
   function renderWin(winData) {
     if (winData.youwon) {
+      $('.september').get(0).pause();
       $(".outcome").text("YOU WON!");
+      $('.cheers').get(0).play();
       $(".card-outcome").text("You captured your opponent's card!");
     } else {
+      $('.september').get(0).pause();
       $(".outcome").text("YOU LOSE!");
+      $('.boos').get(0).play();
       $(".card-outcome").text("You lost your card!");
       if (winData.nocards) {
         $(".no-cards").toggle();
@@ -228,13 +237,8 @@ $(document).ready(function() {
   $(window).unload(clearAll);
 
   function playMusic() {
-    $('.september').get(0).play();
-    if (this.paused == false) {
-        this.pause();
-        alert('music paused');
-    } else {
-        this.play();
-        alert('music playing');
+    if ($('.september').get(0).paused) {
+      $('.september').get(0).play();
     }
   }
 
