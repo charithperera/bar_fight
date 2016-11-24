@@ -11,6 +11,7 @@
 .topbit {
   font-size: 2em;
   font-family: 'Press Start 2P', cursive;
+  display: block;
 }
 
 .wins {

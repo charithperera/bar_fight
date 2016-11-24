@@ -16,8 +16,9 @@
 <% #!-- dashboard, cards and stats -%>
   <%- #display of your stats -%>
   <div class="row topbit">
-    <div class="col s7" >My Dashboard</div>
+    <div class="col s6" >My Dashboard</div>
     <div class="col s5"><%= @user.username %></div>
+    <div class="col s1"><button class="mainpage-btn" id="returnFromDashboard" ><i class="material-icons prefix">replay</i></button></div>
   </div>
   <div class="row wins">
 
@@ -66,7 +67,7 @@
   <div class="topbit" >waiting for match ....</div>
 
   <div class="preloader-wrapper big active">
-    <div class="spinner-layer spinner-blue-only">
+    <div class="spinner-layer spinner-red-only">
       <div class="circle-clipper left">
         <div class="circle"></div>
       </div><div class="gap-patch">
@@ -76,7 +77,7 @@
       </div>
     </div>
   </div>
-  <button class="mainpage-btn" id="returnFromGame" ><i class="material-icons prefix">replay</i>return</button>
+  <button class="mainpage-btn" id="returnFromGame" ><i class="material-icons prefix">replay</i></button>
 
 </div>
 
@@ -158,6 +159,5 @@
   <div class="col s6">Wins: {{wins}}</div>
   <div class="col s6">Losses: {{losses}}</div>
   <% #insert button(s) to navigate away -%>
-  <button class="mainpage-btn" id="returnFromDashboard" ><i class="material-icons prefix">replay</i></button>
 
 </script>
