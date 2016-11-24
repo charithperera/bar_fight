@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post "/api/findmatch", to: "api/game#findmatch"
   post "/api/choosecard", to: "api/game#choosecard"
   post "/api/calculatewinner", to: "api/game#calculatewinner"
+  get "/api/getcollection", to: "api/game#getcollection"
+  get "/api/getstats", to: "api/game#getstats"
   post "/clearall", to: "game#clearall"
   get "/signup", to: "session#signup"
   get "/login", to: "session#index"
