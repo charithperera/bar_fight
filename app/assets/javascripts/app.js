@@ -199,7 +199,7 @@ $(document).ready(function() {
       $('.september').get(0).pause();
       $(".outcome").text("YOU LOSE!");
       var loserpic = "images/" +winData.loserpic;
-      $(".loserpic").html("<img src="+ loserpic +">")
+      $(".outcomepic").html("<img src="+ loserpic +">")
       $('.boos').get(0).play();
       $(".card-outcome").text("You lost your card!");
       if (winData.nocards) {
