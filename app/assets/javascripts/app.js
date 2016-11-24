@@ -31,6 +31,7 @@ $(document).ready(function() {
     $menu.toggle();
     $dashBoardScreen.toggle();
     renderCollection();
+    renderStats();
   })
 
 
@@ -169,10 +170,16 @@ $(document).ready(function() {
     });
   }
 
-  function renderStats(statsData) {
-    var source = $("#stats-template").html();
-    var template = Handlebars.compile(source);
-    $(".stats").append(template(statsData));
+  function renderStats() {
+    $.ajax({
+      url: '/api/getstats',
+      method: 'get'
+    })
+    .done(function(res) {
+      var source = $("#stats-template").html();
+      var template = Handlebars.compile(source);
+      $(".stats").append(template(res));
+    })
   }
 
   function renderWin(winData) {
@@ -194,16 +201,8 @@ $(document).ready(function() {
     $('.winner-screen').toggle();
     $('.stats').empty();
     $('.my-cards').empty();
-
-
     renderCollection();
-
-    $.ajax({
-      url: '/api/getstats',
-      method: 'get'
-    })
-    .done(renderStats)
-
+    renderStats();
     $('.dashboard').toggle();
   }
 
