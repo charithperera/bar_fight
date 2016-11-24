@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 //adding sounds to button hover
   $('button').hover(
-    function() {
+    function(e) {
     $('.buttonhover').get(0).play();
   })
 
@@ -208,14 +208,14 @@ $(document).ready(function() {
       $('.september').get(0).pause();
       $(".outcome").text("YOU WON!");
       var winnerpic = "images/" +winData.winnerpic;
-      $(".outcomepic").html("<img src="+ winnerpic +">")
+      $(".outcomepic").html("<img class='bounce' src="+ winnerpic +">")
       $('.cheers').get(0).play();
       $(".card-outcome").text("You captured your opponent's card!");
     } else {
       $('.september').get(0).pause();
       $(".outcome").text("YOU LOSE!");
       var loserpic = "images/" +winData.loserpic;
-      $(".outcomepic").html("<img src="+ loserpic +">")
+      $(".outcomepic").html("<img class='bounce' src="+ loserpic +">")
       $('.boos').get(0).play();
       $(".card-outcome").text("You lost your card!");
       if (winData.nocards) {
