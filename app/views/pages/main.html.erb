@@ -1,11 +1,11 @@
 <div class="container menu">
  <!-- menu -->
 
-  <button class="mainpage-btn" id="dashboard" ><i class="material-icons prefix">dashboard</i>my dashboard</button>
-  <button class="mainpage-btn" id="newgame" ><i class="material-icons prefix">contacts</i>new game</button>
+  <button class="mainpage-btn valign-wrapper" id="dashboard" ><i class="material-icons prefix">dashboard</i>my dashboard</button>
+  <button class="mainpage-btn valign-wrapper" id="newgame" ><i class="material-icons prefix">contacts</i>new game</button>
 
   <%= form_tag '/logout', method: 'post' do %>
-    <button class="mainpage-btn" id="logout" ><i class="material-icons prefix">replay</i>exit game</button>
+    <button class="mainpage-btn valign-wrapper" id="logout" ><i class="material-icons prefix">replay</i>exit game</button>
   <% end %>
 
 </div>
@@ -17,8 +17,9 @@
   <%- #display of your stats -%>
   <button type="button" name="button" id="backtohome"><<</button>
   <div class="row topbit">
-    <div class="col s7" >My Dashboard</div>
+    <div class="col s6" >My Dashboard</div>
     <div class="col s5"><%= @user.username %></div>
+    <div class="col s1"><button class="dashPage-btn" id="returnFromDashboard" ><i class="material-icons prefix">home</i></button></div>
   </div>
   <div class="row wins">
 
@@ -67,7 +68,7 @@
   <div class="topbit" >waiting for match ....</div>
 
   <div class="preloader-wrapper big active">
-    <div class="spinner-layer spinner-blue-only">
+    <div class="spinner-layer spinner-red-only">
       <div class="circle-clipper left">
         <div class="circle"></div>
       </div><div class="gap-patch">
@@ -77,8 +78,9 @@
       </div>
     </div>
   </div>
-  <button class="mainpage-btn" id="returnFromGame" ><i class="material-icons prefix">replay</i>return</button>
-
+  <div class="center-align">
+    <button class="mainpage-btn" id="returnFromGame" ><i class="material-icons prefix">home</i></button>
+  </div>
 </div>
 
 
@@ -160,6 +162,5 @@
 <script id="stats-template" type="text/x-handlebars-template">
   <div class="col s6">Wins: {{wins}}</div>
   <div class="col s6">Losses: {{losses}}</div>
-  <% #insert button(s) to navigate away -%>
 
 </script>
