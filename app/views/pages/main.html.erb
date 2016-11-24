@@ -20,44 +20,45 @@
     <div class="col s5"><%= @user.username %></div>
   </div>
   <div class="row wins">
-    <div class="col s6">Wins : <%= @user.stat.wins %></div>
-    <div class="col s6">Losses : <%= @user.stat.losses%></div>
-    <% #insert button(s) to navigate away -%>
-    <button class="mainpage-btn" id="returnFromDashboard" ><i class="material-icons prefix">replay</i></button>
+
+    <div class="stats">
+    </div>
+
   </div>
 
-  <% @user_cards.each do |card| %>
-    <div class="ui-card" data-id="<%= card.id %>">
+  <div class="my-cards">
+    <% @user_cards.each do |card| %>
+      <div class="ui-card" data-id="<%= card.id %>">
 
-      <header class="content">
-        <span class="avatar-details">
-          <h2><%= card.name %></h2>
-          <h3><%= card.special %></h3>
-        </span>
-      </header>
+        <header class="content">
+          <span class="avatar-details">
+            <h2><%= card.name %></h2>
+            <h3><%= card.special %></h3>
+          </span>
+        </header>
 
-      <div class="avatar-image">
-        <%=image_tag card.image_url %>
+        <div class="avatar-image">
+          <%=image_tag card.image_url %>
+        </div>
+
+        <div class="content">
+          <div class="power earth">
+            <h4>Earth</h4>
+            <span class="right"><%= card.earth %></span>
+          </div>
+          <div class="power wind">
+            <h4>Wind</h4>
+            <span class="right"><%= card.wind %></span>
+          </div>
+          <div class="power fire">
+            <h4>Fire</h4>
+            <span class="right"><%= card.fire %></span>
+          </div>
+        </div>
+
       </div>
-
-      <div class="content">
-        <div class="power earth">
-          <h4>Earth</h4>
-          <span class="right"><%= card.earth %></span>
-        </div>
-        <div class="power wind">
-          <h4>Wind</h4>
-          <span class="right"><%= card.wind %></span>
-        </div>
-        <div class="power fire">
-          <h4>Fire</h4>
-          <span class="right"><%= card.fire %></span>
-        </div>
-      </div>
-
-    </div>
-  <% end %>
-
+    <% end %>
+  </div>
 </div>
 
 <div class="newgame">
@@ -84,7 +85,7 @@
 <div class="container play-card-screen" id="game">
   <h2 class="game-header topbit">The Game</h2>
   <h4>Select a category from a card below to battle</h4>
-  <div class="my-cards"></div>
+  <div class="my-battle-cards"></div>
 <%- #handlebars appends 3 sampled cards from your collection using script below -%>
   <div class="chosen-card"></div>
 </div>
@@ -103,7 +104,9 @@
 
 <div class="container winner-screen" id="winner">
   <h1 class="outcome"></h1>
-
+  <h2 class="finish">FINISH</h2>
+  <p class="card-outcome"></p>
+  <p class="no-cards">You are out of cards. One pity card will be added to your collection!</p>
 </div>
 
 <%-# this is the template for each of the 3 cards sampled from your collection -%>
@@ -149,4 +152,12 @@
     <h3 class="power-name">{{powername}}</h3>
     <h4 class="power-val">{{powerval}}</h4>
   </div>
+</script>
+
+<script id="stats-template" type="text/x-handlebars-template">
+  <div class="col s6">Wins: {{wins}}</div>
+  <div class="col s6">Losses: {{losses}}</div>
+  <% #insert button(s) to navigate away -%>
+  <button class="mainpage-btn" id="returnFromDashboard" ><i class="material-icons prefix">replay</i></button>
+
 </script>

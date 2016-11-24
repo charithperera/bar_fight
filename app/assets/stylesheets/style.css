@@ -51,7 +51,8 @@
   margin: 0;
 }
 
-.my-cards .power {
+.my-cards .power,
+.my-battle-cards .power {
   overflow: hidden;
   border: 3px white solid;
   cursor: pointer;
@@ -62,7 +63,7 @@
   vertical-align: middle;
 }
 
-.my-cards .power:hover {
+.my-battle-cards .power:hover {
   border: 3px gold solid;
 }
 
@@ -231,4 +232,7 @@ h1 {
 /* label focus color */
 .input-field input[type=password]:focus + label {
   color: white;
+
+.no-cards {
+  display: none;
 }

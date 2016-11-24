@@ -1,11 +1,23 @@
 class Api::GameController < ApplicationController
   include GameConcerns
 
-  def collection
+  def getcollection
     user_cards = current_user.cards
+    pityCard
     render json: user_cards
   end
 
+  def pityCard
+    user_cards = current_user.cards
+    if user_cards.empty?
+      current_user.cards << Card.all.sample
+    end
+  end
+
+  def getstats
+    user_stats = current_user.stat
+    render json: user_stats
+  end
 
   def opponents
     opponents = User.where(logged_in: true, in_game: false)
@@ -68,6 +80,8 @@ class Api::GameController < ApplicationController
         game.save
       else
         game = Game.where(opponent_id: current_user.id).or(Game.where(challenger_id: current_user.id)).first
+        clearmatches
+        clearmatchesopponent(opponent_id)
       end
       response[:game] = game
       response[:cards] = current_user.cards.sample(3)
@@ -81,9 +95,10 @@ class Api::GameController < ApplicationController
     }
     game = params[:game]
     challenger_powername = game[:challenger_powername]
-    challenger_powerval = game[:challenger_powerval]
+    challenger_powerval = game[:challenger_powerval].to_i
     opponent_powername = game[:opponent_powername]
-    opponent_powerval = game[:opponent_powerval]
+    opponent_powerval = game[:opponent_powerval].to_i
+
     if challenger_powerval > opponent_powerval
       challenger = User.find(game[:challenger_id])
       opponent = User.find(game[:opponent_id])
@@ -101,6 +116,7 @@ class Api::GameController < ApplicationController
       response[:powerval] = challenger_powerval
 
       if challenger.id == current_user.id
+
         response[:youwon] = true
       else
         lose_card = Card.find(game[:opponent_cardid])
@@ -123,6 +139,7 @@ class Api::GameController < ApplicationController
       response[:username] = opponent.username
       response[:powername] = opponent_powername
       response[:powerval] = opponent_powerval
+
       if opponent.id == current_user.id
         response[:youwon] = true
       else
@@ -131,6 +148,7 @@ class Api::GameController < ApplicationController
         challenger.cards.delete(lose_card)
       end
     end
+    response[:nocards] = current_user.cards.empty?
     render json: response
   end
 
