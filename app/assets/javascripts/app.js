@@ -1,5 +1,45 @@
 $(document).ready(function() {
 
+  var $dashBoardScreen = $(".dashboard");
+  var $dashBoardBtn = $('#dashboard');
+  var $newGameBtn = $('#newgame');
+  var $exitGameBtn = $('#exitgame');
+  var $menu = $('.menu');
+  var $newGameScreen = $(".newgame");
+  var $returnBtn1 = $("#returnFromDashboard");
+  var $returnBtn2 = $("#returnFromGame");
+
+
+  $newGameBtn.on('click', function(e){
+    $menu.toggle();
+    $newGameScreen.toggle();
+    playMusic();
+  })
+
+
+  $returnBtn1.on('click', function(e){
+    $menu.toggle();
+    $dashBoardScreen.toggle();
+    playMusic();
+
+  })
+
+  $returnBtn2.on('click', function(e){
+    $menu.toggle();
+    $newGameScreen.toggle();
+    playMusic();
+
+  })
+
+  $dashBoardBtn.on('click', function(e){
+    $menu.toggle();
+    $dashBoardScreen.toggle();
+    renderCollection();
+    renderStats();
+    playMusic();
+  })
+
+
   $("#newgame").click(function(e) {
     findMatch();
   })
@@ -120,27 +160,43 @@ $(document).ready(function() {
     }
   }
 
-  function renderCollection(myCards) {
-    var cards = myCards
-    var source = $("#card-template").html();
-    var template = Handlebars.compile(source);
-    for (var i = 0; i < cards.length; i++) {
-      $(".my-cards").append(template(cards[i]))
-    }
+  function renderCollection() {
+    $.ajax({
+      url: '/api/getcollection',
+      method: 'get'
+    })
+    .done(function(res) {
+      var cards = res
+      var source = $("#card-template").html();
+      var template = Handlebars.compile(source);
+      for (var i = 0; i < cards.length; i++) {
+        $(".my-cards").append(template(cards[i]))
+      }
+    });
   }
 
-  function renderStats(statsData) {
-    var source = $("#stats-template").html();
-    var template = Handlebars.compile(source);
-    $(".stats").append(template(statsData));
+  function renderStats() {
+    $.ajax({
+      url: '/api/getstats',
+      method: 'get'
+    })
+    .done(function(res) {
+      var source = $("#stats-template").html();
+      var template = Handlebars.compile(source);
+      $(".stats").append(template(res));
+    })
   }
 
   function renderWin(winData) {
     if (winData.youwon) {
+      $('.september').get(0).pause();
       $(".outcome").text("YOU WON!");
+      $('.cheers').get(0).play();
       $(".card-outcome").text("You captured your opponent's card!");
     } else {
+      $('.september').get(0).pause();
       $(".outcome").text("YOU LOSE!");
+      $('.boos').get(0).play();
       $(".card-outcome").text("You lost your card!");
       if (winData.nocards) {
         $(".no-cards").toggle();
@@ -154,19 +210,8 @@ $(document).ready(function() {
     $('.winner-screen').toggle();
     $('.stats').empty();
     $('.my-cards').empty();
-
-    $.ajax({
-      url: '/api/getcollection',
-      method: 'get'
-    })
-    .done(renderCollection)
-
-    $.ajax({
-      url: '/api/getstats',
-      method: 'get'
-    })
-    .done(renderStats)
-
+    renderCollection();
+    renderStats();
     $('.dashboard').toggle();
   }
 
@@ -190,6 +235,12 @@ $(document).ready(function() {
   }
 
   $(window).unload(clearAll);
+
+  function playMusic() {
+    if ($('.september').get(0).paused) {
+      $('.september').get(0).play();
+    }
+  }
 
 
   // $('#opponent-btn').click(function(event) {

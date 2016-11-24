@@ -154,3 +154,4 @@ class Api::GameController < ApplicationController
 
 
 end
+# //need to delete rows in Match table

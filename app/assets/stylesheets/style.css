@@ -239,3 +239,7 @@ h1 {
 .no-cards {
   display: none;
 }
+
+.september, .boos, .cheers {
+  display: none;
+}
