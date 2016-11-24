@@ -133,11 +133,11 @@ body {
   display: flex;
   justify-content: center;
 }
-/*.homepage-btn {
+.homepage-btn {
   color: white;
   font-size: 2em;
   padding: 2em;
-}*/
+}
 .homepage-btn:hover {
   color: red;
 }
@@ -153,7 +153,7 @@ body {
   color: red;
 }
 .dashPage-btn {
-  
+
 }
 /*#returnFromGame {
   position: absolute;

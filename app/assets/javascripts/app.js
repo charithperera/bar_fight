@@ -6,7 +6,7 @@ $(document).ready(function() {
   var $exitGameBtn = $('#exitgame');
   var $menu = $('.menu');
   var $newGameScreen = $(".newgame");
-  var $returnBtn1 = $("#backtohome");
+  var $returnBtn1 = $("#returnFromDashboard");
   var $returnBtn2 = $("#returnFromGame");
 
 
