@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BirdAttack</title>
-    <link rel="shortcut icon" href= "app/assets/images/teamduck.ico">
+    <title>Bar Fight</title>
+    <%= favicon_link_tag 'teamduck.ico' %>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <!--Import Google Icon Font-->
@@ -27,6 +27,7 @@
   <body>
     <%= yield %>
 
+    <img class="duck" src="assets/teamduck.png" alt="" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <audio class="boos">
