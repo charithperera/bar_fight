@@ -2,11 +2,11 @@
 <div class="container menu">
  <!-- menu -->
 
-  <button class="mainpage-btn" id="dashboard" >my dashboard</button>
-  <button class="mainpage-btn" id="newgame" >new game</button>
+  <button class="mainpage-btn" id="dashboard" ><i class="material-icons prefix">dashboard</i>my dashboard</button>
+  <button class="mainpage-btn" id="newgame" ><i class="material-icons prefix">contacts</i>new game</button>
 
   <%= form_tag '/logout', method: 'post' do %>
-    <button class="mainpage-btn" id="logout" >exit game</button>
+    <button class="mainpage-btn" id="logout" ><i class="material-icons prefix">replay</i>exit game</button>
   <% end %>
 
 </div>
@@ -20,8 +20,10 @@
     <div class="col s5"><%= @user.username %></div>
   </div>
   <div class="row wins">
+
     <div class="stats">
     </div>
+
   </div>
 
   <div class="my-cards">
@@ -74,7 +76,7 @@
       </div>
     </div>
   </div>
-  <button class="mainpage-btn" id="returnFromGame" >return</button>
+  <button class="mainpage-btn" id="returnFromGame" ><i class="material-icons prefix">replay</i>return</button>
 
 </div>
 
@@ -156,6 +158,6 @@
   <div class="col s6">Wins: {{wins}}</div>
   <div class="col s6">Losses: {{losses}}</div>
   <% #insert button(s) to navigate away -%>
-  <button class="mainpage-btn" id="returnFromDashboard" >return</button>
+  <button class="mainpage-btn" id="returnFromDashboard" ><i class="material-icons prefix">replay</i></button>
 
 </script>
