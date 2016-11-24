@@ -282,7 +282,12 @@ h1 {
 /* label focus color */
 .input-field input[type=password]:focus + label {
   color: white;
+}
 
 .no-cards {
+  display: none;
+}
+
+.september, .boos, .cheers {
   display: none;
 }
