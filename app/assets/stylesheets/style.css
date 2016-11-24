@@ -12,12 +12,6 @@
   padding-bottom: 1em;
   padding-top: 1em;
 }
-.bottombit {
-  /*display: flex;
-  justify-content: center;
-  align-items: center;*/
-
-}
 .wins {
   font-size: 1.5em;
 }
@@ -140,7 +134,7 @@ button {
   padding-right: 0 !important;
   font-family: arial !important;
   text-transform: lowercase !important;
-  /*font-size: 1.5em !important;*/
+  font-size: 1.5em !important;
   background-color: transparent;
   background-repeat:no-repeat;
   border: none;
@@ -148,9 +142,6 @@ button {
   overflow: hidden;
   outline: none;
   color: white !important;
-  /*display: flex;
-  align-items: center;
-  justify-content: center;*/
 }
 button:hover {
   color: red !important;
@@ -164,10 +155,7 @@ a {
 a:hover {
   color:red
 }
-i {
-  /*padding-right: 1em;
-  padding-left: 1em;*/
-}
+
 .main-icons {
   padding-right: 1em;
 }
@@ -188,9 +176,6 @@ body {
   color: white;
   background-attachment: fixed;
 
-}
-.form-signin {
-  /*font-size: 1.5em;*/
 }
 .duck {
   width: 60px;
@@ -216,7 +201,6 @@ body {
 .mainpage-btn {
   color: white;
   font-size: 2em;
-  /*padding: 2em;*/
 }
 .mainpage-btn:hover {
   color: red;
@@ -224,14 +208,7 @@ body {
 .dashPage-btn {
 
 }
-/*#returnFromGame {
-  position: absolute;
-  bottom: 0%;
-}*/
-/*#returnFromDashboard {
-  position: absolute;
-  bottom: 0%;
-}*/
+
 .dashboard {
   display: none;
 }
