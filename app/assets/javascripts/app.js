@@ -1,5 +1,39 @@
 $(document).ready(function() {
 
+  var $dashBoardScreen = $(".dashboard");
+  var $dashBoardBtn = $('#dashboard');
+  var $newGameBtn = $('#newgame');
+  var $exitGameBtn = $('#exitgame');
+  var $menu = $('.menu');
+  var $newGameScreen = $(".newgame");
+  var $returnBtn1 = $("#returnFromDashboard");
+  var $returnBtn2 = $("#returnFromGame");
+
+
+  $newGameBtn.on('click', function(e){
+    $menu.toggle();
+    $newGameScreen.toggle();
+
+  })
+
+
+  $returnBtn1.on('click', function(e){
+    $menu.toggle();
+    $dashBoardScreen.toggle();
+  })
+
+  $returnBtn2.on('click', function(e){
+    $menu.toggle();
+    $newGameScreen.toggle();
+  })
+
+  $dashBoardBtn.on('click', function(e){
+    $menu.toggle();
+    $dashBoardScreen.toggle();
+    renderCollection();
+  })
+
+
   $("#newgame").click(function(e) {
     findMatch();
   })
@@ -120,13 +154,19 @@ $(document).ready(function() {
     }
   }
 
-  function renderCollection(myCards) {
-    var cards = myCards
-    var source = $("#card-template").html();
-    var template = Handlebars.compile(source);
-    for (var i = 0; i < cards.length; i++) {
-      $(".my-cards").append(template(cards[i]))
-    }
+  function renderCollection() {
+    $.ajax({
+      url: '/api/getcollection',
+      method: 'get'
+    })
+    .done(function(res) {
+      var cards = res
+      var source = $("#card-template").html();
+      var template = Handlebars.compile(source);
+      for (var i = 0; i < cards.length; i++) {
+        $(".my-cards").append(template(cards[i]))
+      }
+    });
   }
 
   function renderStats(statsData) {
@@ -155,11 +195,8 @@ $(document).ready(function() {
     $('.stats').empty();
     $('.my-cards').empty();
 
-    $.ajax({
-      url: '/api/getcollection',
-      method: 'get'
-    })
-    .done(renderCollection)
+
+    renderCollection();
 
     $.ajax({
       url: '/api/getstats',
@@ -190,6 +227,17 @@ $(document).ready(function() {
   }
 
   $(window).unload(clearAll);
+
+  function playMusic() {
+    $('.september').get(0).play();
+    if (this.paused == false) {
+        this.pause();
+        alert('music paused');
+    } else {
+        this.play();
+        alert('music playing');
+    }
+  }
 
 
   // $('#opponent-btn').click(function(event) {
