@@ -12,8 +12,10 @@
 
 
 <div class="container dashboard">
+
 <% #!-- dashboard, cards and stats -%>
   <%- #display of your stats -%>
+  <button type="button" name="button" id="backtohome"><<</button>
   <div class="row topbit">
     <div class="col s6" >My Dashboard</div>
     <div class="col s5"><%= @user.username %></div>
@@ -160,4 +162,5 @@
 <script id="stats-template" type="text/x-handlebars-template">
   <div class="col s6">Wins: {{wins}}</div>
   <div class="col s6">Losses: {{losses}}</div>
+
 </script>
