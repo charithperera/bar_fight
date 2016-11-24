@@ -130,7 +130,7 @@ $(document).ready(function() {
     //after 5 seconds, get win
     setTimeout(function(){
       displayWin(battleData);
-    },5000);
+    },8000);
   }
 
   function findMatch() {
@@ -198,6 +198,8 @@ $(document).ready(function() {
     } else {
       $('.september').get(0).pause();
       $(".outcome").text("YOU LOSE!");
+      var loserpic = "images/" +winData.loserpic;
+      $(".loserpic").html("<img src="+ loserpic +">")
       $('.boos').get(0).play();
       $(".card-outcome").text("You lost your card!");
       if (winData.nocards) {

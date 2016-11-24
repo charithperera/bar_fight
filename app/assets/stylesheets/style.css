@@ -300,7 +300,13 @@ h1 {
   display: none;
 }
 
+.loserpic img {
+  width: 50%;
+}
 
+.outcome {
+  height: 1.5em;
+}
 
 /*
 ==============================================
