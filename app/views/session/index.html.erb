@@ -9,7 +9,7 @@
        </div>
   <% end %>
   <div class="form-signin">
-    <h3>Log in</h3>
+    <div class="topbit center-align">Log in</div>
     <%= form_tag '/login', method: "post" do %>
 
       <div class="row">
@@ -29,12 +29,15 @@
        </div>
       </div>
 
-      <button class="waves-effect waves-blue btn-flat">login <i class="material-icons right">send</i></button>
-
-      <button class="mainpage-btn" id="returnFromDashboard" ><i class="material-icons prefix">replay</i></button>
+      <div class="col s12 center-align">
+        <button class="waves-effect waves-blue btn-flat">login <i class="material-icons right">done</i></button>
+      </div>
 
     <% end %>
-    <p>Don't have an account? <span><a href="/signup">Sign Up</a></span></p>
+    <p class="center-align">Don't have an account? <span><a href="/signup">Sign Up</a></span></p>
+    <div class="col s12 center-align">
+      <button class="mainpage-btn" id="returnFromDashboard" ><i class="material-icons prefix">home</i></button>
+    </div>
   </div>
 
 </div>

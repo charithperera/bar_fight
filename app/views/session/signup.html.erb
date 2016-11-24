@@ -10,7 +10,7 @@
   <% end %>
 
   <div class="form-signup">
-    <h3>Create an account</h3>
+    <div class="topbit center-align">Sign up</div>
     <%= form_tag '/signup', method: "post" do%>
 
            <div class="row">
@@ -35,12 +35,17 @@
               <label for="icon_prefix">password</label>
             </div>
           </div>
-
-        <button class="waves-effect waves-teal btn-flat">create account <i class="material-icons right">send</i></button>
-        <button class="mainpage-btn" id="returnFromDashboard" ><i class="material-icons prefix">replay</i></button>
-
+        <div class="bottombit col s12 center-align">
+          <button class="waves-effect waves-teal btn-flat">create account <i class="material-icons right">done</i></button>
+        </div>
     <% end %>
-    <p>already have an account? <span><a href="/login">Sign in</a></span></p>
+        <div class="bottombit col s12 center-align">
+          <p>already have an account? <span><a href="/login">Log in</a></span></p>
+        </div>
+
+        <div class="bottombit col s12 center-align">
+          <button class="mainpage-btn" id="returnFromSignup" ><i class="material-icons prefix">home</i></button>
+        </div>
   </div>
 
 

@@ -9,15 +9,19 @@
   margin: 0 auto;
 }
 .topbit {
-  font-size: 2em;
-  font-family: 'Press Start 2P', cursive;
-  display: block;
+  font-size: 3em;
+  padding-bottom: 1em;
+  padding-top: 1em;
 }
+.bottombit {
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
 
+}
 .wins {
   font-size: 1.5em;
 }
-
 .ui-card {
   margin: 1%;
   width: 25%;
@@ -70,65 +74,20 @@
 }
 
 .battle-screen {
-  background: url(battle-ring.jpg);
-  background-size: cover;
-}
-
-.battle-image img {
-  width: 50%;
-}
-
-.battle-image {
-  text-align: center;
-}
-
-.opponent-card {
-  text-align: right;
-  box-sizing: border-box;
 }
 
 .your-card {
-  box-sizing: border-box;
-}
-
-.battle-screen h2 {
-  font-size: 2em;
-  padding: 0 20px 0 20px;;
-}
-
-.battle-screen > h2 {
-  text-align: center;
-}
-
-.battle-screen h3 {
-  font-size: 1.8em;
-  padding: 0 20px 0 20px;;
-}
-
-.battle-screen .power-name {
   display: inline-block;
 }
-
-.battle-screen h4 {
-  font-size: 1.5em;
-  display: inline-block;
-  padding: 0 20px 0 20px;
-}
-
 .opponent-card {
   display: inline-block;
-  padding: 0 20px 0 20px;;
-}
-
-.winner-screen {
-  text-align: center;
 }
 button {
   padding-left: 0 !important;
   padding-right: 0 !important;
   font-family: arial !important;
   text-transform: lowercase !important;
-  font-size: 1.5em !important;
+  /*font-size: 1.5em !important;*/
   background-color: transparent;
   background-repeat:no-repeat;
   border: none;
@@ -136,8 +95,9 @@ button {
   overflow: hidden;
   outline: none;
   color: white !important;
-  display: flex;
+  /*display: flex;
   align-items: center;
+  justify-content: center;*/
 }
 button:hover {
   color: red !important;
@@ -166,21 +126,18 @@ body {
   background-attachment: fixed;
 }
 .form-signin {
-  font-size: 1.5em;
-}
-.form-signup {
-  font-size: 1.5em;
+  /*font-size: 1.5em;*/
 }
 
 .homepage-buttons {
   display: flex;
   justify-content: center;
 }
-.homepage-btn {
+/*.homepage-btn {
   color: white;
   font-size: 2em;
   padding: 2em;
-}
+}*/
 .homepage-btn:hover {
   color: red;
 }
@@ -190,19 +147,19 @@ body {
 .mainpage-btn {
   color: white;
   font-size: 2em;
-  padding: 2em;
+  /*padding: 2em;*/
 }
 .mainpage-btn:hover {
   color: red;
 }
-#returnFromGame {
+/*#returnFromGame {
   position: absolute;
   bottom: 0%;
-}
-#returnFromDashboard {
+}*/
+/*#returnFromDashboard {
   position: absolute;
   bottom: 0%;
-}
+}*/
 .dashboard {
   display: none;
 }
@@ -232,7 +189,6 @@ h1 {
   padding: 2em;
   color: white;
   margin: 0;
-  font-family: 'Press Start 2P', cursive;
 }
 /* label color */
 .input-field label {
@@ -279,7 +235,6 @@ h1 {
 /* label focus color */
 .input-field input[type=password]:focus + label {
   color: white;
-}
 
 .no-cards {
   display: none;
