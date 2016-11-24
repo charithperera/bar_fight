@@ -16,6 +16,7 @@
 .wins {
   font-size: 1.5em;
 }
+
 .ui-card {
   margin: 1%;
   width: 25%;
@@ -68,13 +69,58 @@
 }
 
 .battle-screen {
+  background: url(battle-ring.jpg);
+  background-size: cover;
+}
+
+.battle-image img {
+  width: 50%;
+}
+
+.battle-image {
+  text-align: center;
+}
+
+.opponent-card {
+  text-align: right;
+  box-sizing: border-box;
 }
 
 .your-card {
+  box-sizing: border-box;
+}
+
+.battle-screen h2 {
+  font-size: 2em;
+  padding: 0 20px 0 20px;;
+}
+
+.battle-screen > h2 {
+  text-align: center;
+}
+
+.battle-screen h3 {
+  font-size: 1.8em;
+  padding: 0 20px 0 20px;;
+}
+
+.battle-screen .power-name {
   display: inline-block;
 }
+
+.battle-screen h4 {
+  font-size: 1.5em;
+  display: inline-block;
+  padding: 0 20px 0 20px;
+}
+
 .opponent-card {
   display: inline-block;
+  padding: 0 20px 0 20px;;
+}
+
+.winner-screen {
+  text-align: center;
 }
 button {
   padding-left: 0 !important;
