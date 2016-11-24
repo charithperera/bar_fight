@@ -65,7 +65,7 @@
 }
 
 .my-battle-cards .power:hover {
-  border: 3px gold solid;
+  border: 3px red solid;
 }
 
 .battle-screen {
@@ -77,8 +77,12 @@
   width: 50%;
 }
 
-.battle-image {
-  text-align: center;
+.opponent-card .battle-image {
+  text-align: left;
+}
+
+.your-card .battle-image {
+  text-align: right;
 }
 
 .opponent-card {

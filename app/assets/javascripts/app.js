@@ -48,7 +48,7 @@ $(document).ready(function() {
 
   function selectPower(e) {
     $(e.target).closest(".ui-card").css("transform", "scale(1.1)");
-    $(e.target).closest(".power").css("border", "3px solid gold");
+    $(e.target).closest(".power").css("border", "3px solid red");
     $(".my-battle-cards").off("click", ".power");
     data = {
       powerName: $(e.target).closest("div").find("h4").text(),
