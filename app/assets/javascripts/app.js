@@ -13,24 +13,30 @@ $(document).ready(function() {
   $newGameBtn.on('click', function(e){
     $menu.toggle();
     $newGameScreen.toggle();
-
+    playMusic();
   })
 
 
   $returnBtn1.on('click', function(e){
     $menu.toggle();
     $dashBoardScreen.toggle();
+    playMusic();
+
   })
 
   $returnBtn2.on('click', function(e){
     $menu.toggle();
     $newGameScreen.toggle();
+    playMusic();
+
   })
 
   $dashBoardBtn.on('click', function(e){
     $menu.toggle();
     $dashBoardScreen.toggle();
     renderCollection();
+    playMusic();
+
   })
 
 
@@ -229,13 +235,8 @@ $(document).ready(function() {
   $(window).unload(clearAll);
 
   function playMusic() {
-    $('.september').get(0).play();
-    if (this.paused == false) {
-        this.pause();
-        alert('music paused');
-    } else {
-        this.play();
-        alert('music playing');
+    if ($('.september').get(0).paused) {
+      $('.september').get(0).play();
     }
   }
 
