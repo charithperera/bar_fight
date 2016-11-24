@@ -165,8 +165,11 @@ a:hover {
   color:red
 }
 i {
+  /*padding-right: 1em;
+  padding-left: 1em;*/
+}
+.main-icons {
   padding-right: 1em;
-  padding-left: 1em;
 }
 .home {
   height:100vh;

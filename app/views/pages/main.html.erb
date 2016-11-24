@@ -1,11 +1,11 @@
 <div class="container menu">
  <!-- menu -->
 
-  <button class="mainpage-btn valign-wrapper" id="dashboard" ><i class="material-icons prefix">dashboard</i>my dashboard</button>
-  <button class="mainpage-btn valign-wrapper" id="newgame" ><i class="material-icons prefix">contacts</i>new game</button>
+  <button class="mainpage-btn valign-wrapper" id="dashboard" ><i class="main-icons material-icons prefix">dashboard</i>my dashboard</button>
+  <button class="mainpage-btn valign-wrapper" id="newgame" ><i class="main-icons material-icons prefix">contacts</i>new game</button>
 
   <%= form_tag '/logout', method: 'post' do %>
-    <button class="mainpage-btn valign-wrapper" id="logout" ><i class="material-icons prefix">replay</i>exit game</button>
+    <button class="mainpage-btn valign-wrapper" id="logout" ><i class="main-icons material-icons prefix">replay</i>exit game</button>
   <% end %>
 
 </div>
@@ -85,10 +85,10 @@
 
 
 <%- #this displays the three cards sampled -%>
-<div class="container play-card-screen" id="game">
+<div class="container play-card-screen center-align" id="game">
   <h2 class="game-header topbit">The Game</h2>
   <h4>Select a category from a card below to battle</h4>
-  <div class="my-battle-cards"></div>
+  <div class="my-battle-cards center-align"></div>
 <%- #handlebars appends 3 sampled cards from your collection using script below -%>
   <div class="chosen-card"></div>
 </div>
@@ -116,7 +116,7 @@
 
 <%-# this is the template for each of the 3 cards sampled from your collection -%>
 <script id="card-template" type="text/x-handlebars-template">
-  <div class="ui-card" data-id={{id}}>
+  <div class="ui-card " data-id={{id}}>
     <header class="content">
       <span class="avatar-details">
         <h2>{{ name }}</h2>
@@ -129,15 +129,15 @@
     </div>
 
     <div class="content">
-      <div class="power earth">
+      <div class="power earth left-align">
         <h4>Earth</h4>
         <span class="right">{{earth}}</span>
       </div>
-      <div class="power wind">
+      <div class="power wind left-align">
         <h4>Wind</h4>
         <span class="right">{{wind}}</span>
       </div>
-      <div class="power fire">
+      <div class="power fire left-align">
         <h4>Fire</h4>
         <span class="right">{{fire}}</span>
       </div>
