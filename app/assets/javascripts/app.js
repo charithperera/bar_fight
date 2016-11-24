@@ -36,6 +36,7 @@ $(document).ready(function() {
     $dashBoardScreen.toggle();
     renderCollection();
     $(".stats").empty();
+    $(".my-cards").empty();
     renderStats();
     playMusic();
   })
@@ -195,16 +196,15 @@ $(document).ready(function() {
       $('.september').get(0).pause();
       $(".outcome").text("YOU WON!");
       $('.cheers').get(0).play();
-      $(".card-outcome").text("You captured your opponent's card!");
+      $(".card-outcome").text("you captured your opponent's card!");
     } else {
       $('.september').get(0).pause();
       $(".outcome").text("YOU LOSE!");
       $('.boos').get(0).play();
-      $(".card-outcome").text("You lost your card!");
+      $(".card-outcome").text("you lost your card!");
       if (winData.nocards) {
         $(".no-cards").toggle();
       }
-
     }
   }
 

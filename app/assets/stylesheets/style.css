@@ -12,12 +12,6 @@
   padding-bottom: 1em;
   padding-top: 1em;
 }
-.bottombit {
-  /*display: flex;
-  justify-content: center;
-  align-items: center;*/
-
-}
 .wins {
   font-size: 1.5em;
 }
@@ -82,16 +76,18 @@
   width: 50%;
 }
 
-.opponent-card .battle-image img {
-  position: relative;
-  left: -50%;
-  z-index: 200;
+.opponent-card .battle-image {
+  /*position: relative;*/
+  text-align: left;
+  /*left: -50%;*/
+  /*z-index: 200;*/
 }
 
-.your-card .battle-image img {
-  position: relative;
-  left: 100%;
-  z-index: 9999;
+.your-card .battle-image {
+  /*position: relative;*/
+  text-align: right;
+  /*left: 100%;*/
+  /*z-index: 9999;*/
 }
 
 .opponent-card {
@@ -140,7 +136,7 @@ button {
   padding-right: 0 !important;
   font-family: arial !important;
   text-transform: lowercase !important;
-  /*font-size: 1.5em !important;*/
+  font-size: 1.5em !important;
   background-color: transparent;
   background-repeat:no-repeat;
   border: none;
@@ -148,9 +144,6 @@ button {
   overflow: hidden;
   outline: none;
   color: white !important;
-  /*display: flex;
-  align-items: center;
-  justify-content: center;*/
 }
 button:hover {
   color: red !important;
@@ -164,9 +157,9 @@ a {
 a:hover {
   color:red
 }
-i {
+
+.main-icons {
   padding-right: 1em;
-  padding-left: 1em;
 }
 .home {
   height:100vh;
@@ -185,9 +178,6 @@ body {
   color: white;
   background-attachment: fixed;
 
-}
-.form-signin {
-  /*font-size: 1.5em;*/
 }
 .duck {
   width: 60px;
@@ -213,7 +203,6 @@ body {
 .mainpage-btn {
   color: white;
   font-size: 2em;
-  /*padding: 2em;*/
 }
 .mainpage-btn:hover {
   color: red;
@@ -221,14 +210,7 @@ body {
 .dashPage-btn {
 
 }
-/*#returnFromGame {
-  position: absolute;
-  bottom: 0%;
-}*/
-/*#returnFromDashboard {
-  position: absolute;
-  bottom: 0%;
-}*/
+
 .dashboard {
   display: none;
 }
@@ -377,3 +359,66 @@ slideRight
 		-webkit-transform: translateX(0%);
 	}
 }
+/*
+==============================================
+slideLeft
+==============================================
+*/
+
+
+.slideLeft{
+	animation-name: slideLeft;
+	-webkit-animation-name: slideLeft;
+
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+
+	visibility: visible !important;
+}
+
+@keyframes slideLeft {
+	0% {
+		transform: translateX(150%);
+	}
+	50%{
+		transform: translateX(-8%);
+	}
+	65%{
+		transform: translateX(4%);
+	}
+	80%{
+		transform: translateX(-4%);
+	}
+	95%{
+		transform: translateX(2%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@-webkit-keyframes slideLeft {
+	0% {
+		-webkit-transform: translateX(150%);
+	}
+	50%{
+		-webkit-transform: translateX(-8%);
+	}
+	65%{
+		-webkit-transform: translateX(4%);
+	}
+	80%{
+		-webkit-transform: translateX(-4%);
+	}
+	95%{
+		-webkit-transform: translateX(2%);
+	}
+	100% {
+		-webkit-transform: translateX(0%);
+	}
+}
+
+/*
