@@ -118,6 +118,7 @@ class Api::GameController < ApplicationController
       if challenger.id == current_user.id
 
         response[:youwon] = true
+        response[:winnerpic] = Card.find(game["challenger_cardid"]).image_url
       else
         response[:loserpic] = Card.find(game["opponent_cardid"]).sad_image_url
         lose_card = Card.find(game[:opponent_cardid])
@@ -143,6 +144,7 @@ class Api::GameController < ApplicationController
 
       if opponent.id == current_user.id
         response[:youwon] = true
+        response[:winnerpic] = Card.find(game["opponent_cardid"]).image_url
       else
         response[:loserpic] = Card.find(game["challenger_cardid"]).sad_image_url
         lose_card = Card.find(game[:challenger_cardid])

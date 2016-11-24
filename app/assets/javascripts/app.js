@@ -193,6 +193,8 @@ $(document).ready(function() {
     if (winData.youwon) {
       $('.september').get(0).pause();
       $(".outcome").text("YOU WON!");
+      var winnerpic = "images/" +winData.winnerpic;
+      $(".outcomepic").html("<img src="+ winnerpic +">")
       $('.cheers').get(0).play();
       $(".card-outcome").text("You captured your opponent's card!");
     } else {
