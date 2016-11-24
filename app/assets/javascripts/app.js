@@ -127,11 +127,10 @@ $(document).ready(function() {
     var template = Handlebars.compile(source);
     $(".your-card").append(template(myBattleCard));
     $(".opponent-card").append(template(oppBattleCard));
-
     //after 5 seconds, get win
     setTimeout(function(){
       displayWin(battleData);
-    },10000);
+    },5000);
   }
 
   function findMatch() {
