@@ -1,4 +1,3 @@
-
 .form-signin {
   max-width: 400px;
   margin: 0 auto;
@@ -9,14 +8,19 @@
   margin: 0 auto;
 }
 .topbit {
-  font-size: 2em;
-  font-family: 'Press Start 2P', cursive;
+  font-size: 3em;
+  padding-bottom: 1em;
+  padding-top: 1em;
 }
+.bottombit {
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
 
+}
 .wins {
   font-size: 1.5em;
 }
-
 .ui-card {
   margin: 1%;
   width: 25%;
@@ -91,7 +95,7 @@
 }
 
 .your-card {
-  box-sizing: border-box;
+  display: inline-block;
 }
 
 .battle-screen h2 {
@@ -120,7 +124,7 @@
 
 .opponent-card {
   display: inline-block;
-  padding: 0 20px 0 20px;;
+  padding: 0 20px 0 20px;
 }
 
 .winner-screen {
@@ -131,7 +135,7 @@ button {
   padding-right: 0 !important;
   font-family: arial !important;
   text-transform: lowercase !important;
-  font-size: 1.5em !important;
+  /*font-size: 1.5em !important;*/
   background-color: transparent;
   background-repeat:no-repeat;
   border: none;
@@ -139,8 +143,9 @@ button {
   overflow: hidden;
   outline: none;
   color: white !important;
-  display: flex;
+  /*display: flex;
   align-items: center;
+  justify-content: center;*/
 }
 button:hover {
   color: red !important;
@@ -169,10 +174,7 @@ body {
   background-attachment: fixed;
 }
 .form-signin {
-  font-size: 1.5em;
-}
-.form-signup {
-  font-size: 1.5em;
+  /*font-size: 1.5em;*/
 }
 
 .homepage-buttons {
@@ -193,19 +195,22 @@ body {
 .mainpage-btn {
   color: white;
   font-size: 2em;
-  padding: 2em;
+  /*padding: 2em;*/
 }
 .mainpage-btn:hover {
   color: red;
 }
-#returnFromGame {
+.dashPage-btn {
+
+}
+/*#returnFromGame {
   position: absolute;
   bottom: 0%;
-}
-#returnFromDashboard {
+}*/
+/*#returnFromDashboard {
   position: absolute;
   bottom: 0%;
-}
+}*/
 .dashboard {
   display: none;
 }
@@ -235,7 +240,6 @@ h1 {
   padding: 2em;
   color: white;
   margin: 0;
-  font-family: 'Press Start 2P', cursive;
 }
 /* label color */
 .input-field label {
