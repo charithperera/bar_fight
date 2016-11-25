@@ -18,10 +18,10 @@
 
 
 names = [ "Leon", "James", "Nick", "Dean", "Melissa", "Ka", "Tim", "EJ", "Catherine", "Charith", "Micah", "Paul W", "Paul M", "Kerrie", "Chloe", "Duyen", "Ari", "Pedro", "Sean", "Jason", "Bruno", "Harry", "Kasun", "DT", "Matt"]
-earth = [2360, 0, 1960, 2260, 1970, 970, 2790, 2060, 2200, 3570, 610, 1230, 4280, 3980, 3720, 2440, 10, 3770, 5000, 4280, 1670, 2660, 590, 4130, 3810]
-wind = [2530, 3250, 4890, 1550, 2640, 4560, 4220, 4130, 1540, 3650, 4290, 2920, 2830, 4700, 1210, 1870, 1120, 60, 4260, 2070, 3870, 1880, 4650, 2470, 1080]
-fire = [320, 420, 3790, 2290, 440, 2690, 2880, 2290, 3670, 2770, 3990, 3320, 1800, 460, 2780, 2980, 2110, 3360, 3930, 4480, 2000, 340, 1020, 3450, 710]
-specials = ["Hot Chocolate", "Mr Nosey", "Gadgetman", "Insomniac", "Parrot Woman", "Wisdom", "Mr Music", "Sasquatch Fancier", "Wordsmith", "Calorie King", "Tree Whisperer", "Beer Connoisseur", "Normal Dude", "Mrs Enthusiastic", "The Magician", "The Artist", "The Real Batman", "Nice Hair Nice House", "Poker Face", "Mr Smiley", "Mr Suave", "The Delinquent", "The Patient", "The Cakepudding", "B.O.S.S"]
+earth = [2360, 730, 1960, 2260, 1970, 970, 2790, 2060, 2200, 3570, 610, 1230, 4280, 3980, 3720, 2440, 1310, 3770, 3950, 4280, 1670, 2660, 590, 4130, 3810]
+wind = [2530, 1100, 4890, 1550, 2640, 4560, 4220, 4130, 1540, 3650, 4290, 2920, 2830, 4700, 1210, 1870, 1120, 1260, 1260, 2070, 3870, 1880, 4650, 2470, 1080]
+fire = [320, 60, 3790, 2290, 440, 2690, 2880, 2290, 3670, 2770, 3990, 3320, 1800, 460, 2780, 2980, 2110, 3360, 2930, 4480, 2000, 340, 1020, 3450, 710]
+specials = ["Hot Chocolate", "Nosiness", "Gadgets", "Sleepless", "Parrots", "Quietly competent", "Mr Music", "Sasquatch Fancier", "Wordsmith", "Calorie King", "Tree Whisperer", "Beer Connoisseur", "Normal Man", "Caring Engineer", "Magician", "Artist", "Batman", "Nice Hair Nice House", "Poker Face", "Smiley", "Mr Suave", "Delinquent", "Patience", "Cakepudding", "B.O.S.S"]
 images = ["avatars/leon.png",
           "avatars/james.png",
           "avatars/nick.png",
