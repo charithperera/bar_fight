@@ -9,6 +9,12 @@ $(document).ready(function() {
   var $returnBtn1 = $("#returnFromDashboard");
   var $returnBtn2 = $("#returnFromGame");
 
+//adding sounds to button hover
+  $('button').hover(
+    function(e) {
+    $('.buttonhover').get(0).play();
+  })
+
 
   $newGameBtn.on('click', function(e){
     $menu.toggle();
@@ -45,6 +51,14 @@ $(document).ready(function() {
   $("#newgame").click(function(e) {
     findMatch();
   })
+
+//can't seem to get the below to work
+//was trying to add the button plop sound to when you hover over the POWERs on the cards dealt to you during battle
+  // $(".power").hover(plop);
+  //
+  // function plop() {
+  //   $('.buttonhover').get(0).play();
+  // }
 
   $(".my-battle-cards").on("click", ".power", selectPower);
 
@@ -132,7 +146,7 @@ $(document).ready(function() {
     //after 5 seconds, get win
     setTimeout(function(){
       displayWin(battleData);
-    },5000);
+    },8000);
   }
 
   function findMatch() {
@@ -195,15 +209,20 @@ $(document).ready(function() {
     if (winData.youwon) {
       $('.september').get(0).pause();
       $(".outcome").text("YOU WON!");
+      var winnerpic = "images/" +winData.winnerpic;
+      $(".outcomepic").html("<img class='bounce' src="+ winnerpic +">")
       $('.cheers').get(0).play();
       $(".card-outcome").text("you captured your opponent's card!");
+      $(".no-cards").hide();
     } else {
       $('.september').get(0).pause();
       $(".outcome").text("YOU LOSE!");
+      var loserpic = "images/" +winData.loserpic;
+      $(".outcomepic").html("<img class='bounce' src="+ loserpic +">")
       $('.boos').get(0).play();
       $(".card-outcome").text("you lost your card!");
       if (winData.nocards) {
-        $(".no-cards").toggle();
+        $(".no-cards").show();
       }
     }
   }
