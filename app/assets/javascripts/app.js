@@ -197,13 +197,14 @@ $(document).ready(function() {
       $(".outcome").text("YOU WON!");
       $('.cheers').get(0).play();
       $(".card-outcome").text("you captured your opponent's card!");
+      $(".no-cards").hide();
     } else {
       $('.september').get(0).pause();
       $(".outcome").text("YOU LOSE!");
       $('.boos').get(0).play();
       $(".card-outcome").text("you lost your card!");
       if (winData.nocards) {
-        $(".no-cards").toggle();
+        $(".no-cards").show();
       }
     }
   }
