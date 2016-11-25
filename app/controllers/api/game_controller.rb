@@ -66,11 +66,11 @@ class Api::GameController < ApplicationController
   def findmatch
     response = {}
     opponent = nil
-    have_game? = !(Game.where(opponent_id: current_user.id).or(Game.where(challenger_id: current_user.id)).empty?)
+    have_game = !(Game.where(opponent_id: current_user.id).or(Game.where(challenger_id: current_user.id)).empty?)
 
-    if Match.where(user_id: current_user.id).empty? || !have_game?
+    if Match.where(user_id: current_user.id).empty? || !have_game
       Match.create(user_id: current_user.id)
-    elsif have_game?
+    elsif have_game
       response[:game] = game
       response[:cards] = current_user.cards.sample(3)
     end
