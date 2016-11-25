@@ -86,28 +86,29 @@ class Api::GameController < ApplicationController
     opponent = nil
     have_game = !(Game.where(opponent_id: current_user.id).or(Game.where(challenger_id: current_user.id)).empty?)
 
-    if Match.where(user_id: current_user.id).empty? || !have_game
+    if Match.where(user_id: current_user.id).empty? && !have_game
       Match.create(user_id: current_user.id)
+
+      users_looking = Match.where.not(user_id: current_user.id)
+      unless users_looking.empty?
+        opponent_id = users_looking.sample.user_id
+        game = nil
+        if Game.where(opponent_id: current_user.id).or(Game.where(challenger_id: current_user.id)).empty?
+          game = Game.new
+          game.challenger_id = current_user.id
+          game.opponent_id = opponent_id
+          game.save
+          clearmatches
+          clearmatchesopponent(opponent_id)
+        else
+          game = Game.where(opponent_id: current_user.id).or(Game.where(challenger_id: current_user.id)).first
+        end
+        response[:game] = game
+        response[:cards] = current_user.cards.sample(3)
+      end
+
     elsif have_game
       game = Game.where(opponent_id: current_user.id).or(Game.where(challenger_id: current_user.id)).first
-      response[:game] = game
-      response[:cards] = current_user.cards.sample(3)
-    end
-
-    users_looking = Match.where.not(user_id: current_user.id)
-    unless users_looking.empty?
-      opponent_id = users_looking.sample.user_id
-      game = nil
-      if Game.where(opponent_id: current_user.id).or(Game.where(challenger_id: current_user.id)).empty?
-        game = Game.new
-        game.challenger_id = current_user.id
-        game.opponent_id = opponent_id
-        game.save
-        clearmatches
-        clearmatchesopponent(opponent_id)
-      else
-        game = Game.where(opponent_id: current_user.id).or(Game.where(challenger_id: current_user.id)).first
-      end
       response[:game] = game
       response[:cards] = current_user.cards.sample(3)
     end
