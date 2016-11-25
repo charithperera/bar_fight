@@ -80,9 +80,9 @@ class Api::GameController < ApplicationController
         game.save
       else
         game = Game.where(opponent_id: current_user.id).or(Game.where(challenger_id: current_user.id)).first
-        clearmatches
-        clearmatchesopponent(opponent_id)
       end
+      clearmatches
+      clearmatchesopponent(opponent_id)
       response[:game] = game
       response[:cards] = current_user.cards.sample(3)
     end
