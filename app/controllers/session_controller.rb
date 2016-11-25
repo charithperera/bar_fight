@@ -7,7 +7,7 @@ class SessionController < ApplicationController
     new_user = User.new
 
     new_user.username = params['username']
-    new_user.email = params['email']
+    new_user.email = params['email'].downcase
     new_user.password = params['password']
 
     if new_user.valid?
@@ -29,7 +29,7 @@ class SessionController < ApplicationController
   end
 
   def login
-    user = User.find_by(email: params[:email])
+    user = User.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to '/main'

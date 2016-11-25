@@ -100,3 +100,21 @@ User.destroy_all
   new_stat = Stat.create({ wins: 0, losses:0 , card_count: new_user.cards.count })
   new_user.stat = new_stat
 end
+
+names.each_with_index do |name, index|
+  new_user = User.new
+
+  new_user.username = name.delete(' ')
+  new_user.email = name.downcase.delete(' ') + '@ga.co'
+  new_user.password = 'test'
+
+  new_user.logged_in = true
+  new_user.in_game = false
+  new_user.save
+
+  new_user.cards << Card.find_by(name: name)
+
+  new_stat = Stat.create({ wins: 0, losses:0 , card_count: new_user.cards.count })
+  new_user.stat = new_stat
+
+end
