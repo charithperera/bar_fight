@@ -68,7 +68,7 @@
 }
 
 .battle-screen {
-  background: url('battle-ring.jpg');
+  background: url('/images/battle-ring.jpg');
   background-size: cover;
 }
 
@@ -174,7 +174,7 @@ a:hover {
   height: 100vh;
 }
 body {
-  background-image: url('boxing-ring.jpg');
+  background-image: url('/images/boxing-ring.jpg');
   background-size: cover;
   color: white;
   background-attachment: fixed;
